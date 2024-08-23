@@ -20,14 +20,26 @@
   <section class="hero" data-test="hero">
     <div class="main-container">
       <div class="hero__wrapper">
-        <p class="hero__text">Тренажёрный зал Групповые занятия Кардио-зона
-        </p>
-        <div class="hero__inner">
-          <p class="hero__city">Омск</h2>
-          <h1 class="hero__title">Фитнес центр</h1>
+        <div class="hero-content__wrapper">
+          <p class="hero__text">Тренажёрный зал Групповые занятия Кардио-зона
+          </p>
+          <div class="hero__inner">
+            <p class="hero__city">Омск</h2>
+            <h1 class="hero__title">Фитнес<br>центр</h1>
+            <button class="hero__btn">Купить абонемент</button>
+          </div>
         </div>
+        <picture>
+          <source media="(min-width:1366px)" srcset="img/hero-img-desktop.webp 1x" width="500" height="524"
+            type="image/webp">
+            <source media="(min-width:1366px)" srcset="img/hero-img-desktop.jpeg 1x" width="500" height="524"
+            type="image/jpeg">
+          <source media="(min-width: 768px)" srcset="img/hero-img-tablet.jpeg 1x" width="324" height="390"
+            type="image/jpeg">
+          <img class="hero__image" src="img/hero-img-tablet.webp" width="324" height="390"
+            alt="Мужчина в футболке супермена на тёмном фоне" type="image/webp">
+        </picture>
       </div>
-      <button class="hero__btn">Купить абонемент</button>
     </div>
   </section>
   <div class="about" data-test="about">about</div>
