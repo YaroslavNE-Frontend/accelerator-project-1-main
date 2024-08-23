@@ -2,9 +2,9 @@
 // ---------------------------------
 
 @import "vendor/normalize";
-@import "vendor/mixins";
-@import "main-container";
-@import "logo";
-@import "page-header";
-@import "hero";
-@import "about";
+@import "global/mixins";
+@import "blocks/main-container";
+@import "blocks/logo";
+@import "blocks/page-header";
+@import "blocks/hero";
+@import "blocks/about";
