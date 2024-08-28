@@ -175,85 +175,211 @@
 // });
 
 import Plyr from 'plyr';
-import "plyr/dist/plyr.css"
+// import "plyr/dist/plyr.css"
 
-const controls =
-	[
-		'play-large', // The large play button in the center
-		'restart', // Restart playback
-		'rewind', // Rewind by the seek time (default 10 seconds)
-		'play', // Play/pause playback
-		'fast-forward', // Fast forward by the seek time (default 10 seconds)
-		'progress', // The progress bar and scrubber for playback and buffering
-		'current-time', // The current time of playback
-		'duration', // The full duration of the media
-		'mute', // Toggle mute
-		'volume', // Volume control
-		'captions', // Toggle captions
-		'settings', // Settings menu
-		'pip', // Picture-in-picture (currently Safari only)
-		'airplay', // Airplay (currently Safari only)
-		'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
-		'fullscreen' // Toggle fullscreen
-	];
+
+
+
+
+let controls = [
+
+        ` <div class="plyr__controls"><button class="plyr__controls__item plyr__control" type="button" data-plyr="restart"
+        aria-pressed="false"><svg aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-restart"></use>
+        </svg><span class="plyr__tooltip">Повтор</span></button><button class="plyr__controls__item plyr__control"
+        type="button" data-plyr="rewind" aria-pressed="false"><svg aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-rewind"></use>
+        </svg><span class="plyr__tooltip">Назад на 10 сек</span></button><button
+        class="plyr__controls__item plyr__control" type="button" data-plyr="play" aria-pressed="false"
+        aria-label="Воспроизвести"><svg class="icon--pressed" aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-pause"></use>
+        </svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-play"></use>
+        </svg><span class="label--pressed plyr__tooltip">Пауза</span><span
+          class="label--not-pressed plyr__tooltip">Воспроизвести</span></button><button
+        class="plyr__controls__item plyr__control" type="button" data-plyr="fast-forward" aria-pressed="false"><svg
+          aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-fast-forward"></use>
+        </svg><span class="plyr__tooltip">Вперёд на 10 сек</span></button>
+      <div class="plyr__controls__item plyr__progress__container">
+        <div class="plyr__progress"><input data-plyr="seek" type="range" min="0" max="100" step="0.01" value="0"
+            autocomplete="off" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="519.856"
+            aria-valuenow="13.099284" id="plyr-seek-912" aria-valuetext="00:13 of 08:39"
+            style="--value: 2.52%; user-select: none; touch-action: manipulation;"><progress
+            class="plyr__progress__buffer" min="0" max="100" value="16.16062909728848" role="progressbar"
+            aria-hidden="true">% бюферизация</progress><span class="plyr__tooltip">00:00</span></div>
+      </div>
+      <div class="plyr__controls__item plyr__time--current plyr__time" aria-label="Текущее время" role="timer">00:13
+      </div>
+      <div class="plyr__controls__item plyr__time--duration plyr__time" aria-label="Продолжительность" role="timer">
+        08:39</div>
+      <div class="plyr__controls__item plyr__volume"><button type="button" class="plyr__control" data-plyr="mute"
+          aria-pressed="false"><svg class="icon--pressed" aria-hidden="true" focusable="false">
+            <use xlink:href="#plyr-muted"></use>
+          </svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false">
+            <use xlink:href="#plyr-volume"></use>
+          </svg><span class="label--pressed plyr__tooltip">Включить звук</span><span
+            class="label--not-pressed plyr__tooltip">Без звука</span></button><input data-plyr="volume" type="range"
+          min="0" max="1" step="0.05" value="1" autocomplete="off" role="slider" aria-label="Volume" aria-valuemin="0"
+          aria-valuemax="100" aria-valuenow="75" id="plyr-volume-912" aria-valuetext="75.0%"
+          style="--value: 75%; user-select: none; touch-action: manipulation;"></div><button
+        class="plyr__controls__item plyr__control" type="button" data-plyr="captions" aria-pressed="false"><svg
+          class="icon--pressed" aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-captions-on"></use>
+        </svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-captions-off"></use>
+        </svg><span class="label--pressed plyr__tooltip">Выключить субтитры</span><span
+          class="label--not-pressed plyr__tooltip">Включить субтитры</span></button>
+      <div class="plyr__controls__item plyr__menu"><button aria-haspopup="true" aria-controls="plyr-settings-912"
+          aria-expanded="false" type="button" class="plyr__control" data-plyr="settings" aria-pressed="false"><svg
+            aria-hidden="true" focusable="false">
+            <use xlink:href="#plyr-settings"></use>
+          </svg><span class="plyr__tooltip">Опции</span></button>
+        <div class="plyr__menu__container" id="plyr-settings-912">
+          <div>
+            <div id="plyr-settings-912-home">
+              <div role="menu"><button data-plyr="settings" type="button" class="plyr__control plyr__control--forward"
+                  role="menuitem" aria-haspopup="true"><span>Язык<span
+                      class="plyr__menu__value">Откоючено</span></span></button><button data-plyr="settings"
+                  type="button" class="plyr__control plyr__control--forward" role="menuitem" aria-haspopup="true"
+                  hidden=""><span>Качество<span class="plyr__menu__value">undefined</span></span></button><button
+                  data-plyr="settings" type="button" class="plyr__control plyr__control--forward" role="menuitem"
+                  aria-haspopup="true"><span>Скорость<span class="plyr__menu__value">Нормальная</span></span></button>
+              </div>
+            </div>
+            <div id="plyr-settings-912-captions" hidden=""><button type="button"
+                class="plyr__control plyr__control--back"><span aria-hidden="true">Язык</span><span
+                  class="plyr__sr-only">Go back to previous menu</span></button>
+              <div role="menu"><button data-plyr="language" type="button" role="menuitemradio" class="plyr__control"
+                  aria-checked="true" value="-1"><span>Откоючено</span></button><button data-plyr="language"
+                  type="button" role="menuitemradio" class="plyr__control" aria-checked="false"
+                  value="0"><span>Русский<span class="plyr__menu__value"><span
+                        class="plyr__badge">RU</span></span></span></button></div>
+            </div>
+            <div id="plyr-settings-912-quality" hidden=""><button type="button"
+                class="plyr__control plyr__control--back"><span aria-hidden="true">Качество</span><span
+                  class="plyr__sr-only">Go back to previous menu</span></button>
+              <div role="menu"></div>
+            </div>
+            <div id="plyr-settings-912-speed" hidden=""><button type="button"
+                class="plyr__control plyr__control--back"><span aria-hidden="true">Скорость</span><span
+                  class="plyr__sr-only">Go back to previous menu</span></button>
+              <div role="menu"><button data-plyr="speed" type="button" role="menuitemradio" class="plyr__control"
+                  aria-checked="false" value="0.5"><span>0.5×</span></button><button data-plyr="speed" type="button"
+                  role="menuitemradio" class="plyr__control" aria-checked="false"
+                  value="0.75"><span>0.75×</span></button><button data-plyr="speed" type="button" role="menuitemradio"
+                  class="plyr__control" aria-checked="true" value="1"><span>Нормальная</span></button><button
+                  data-plyr="speed" type="button" role="menuitemradio" class="plyr__control" aria-checked="false"
+                  value="1.25"><span>1.25×</span></button><button data-plyr="speed" type="button" role="menuitemradio"
+                  class="plyr__control" aria-checked="false" value="1.5"><span>1.5×</span></button><button
+                  data-plyr="speed" type="button" role="menuitemradio" class="plyr__control" aria-checked="false"
+                  value="1.75"><span>1.75×</span></button><button data-plyr="speed" type="button" role="menuitemradio"
+                  class="plyr__control" aria-checked="false" value="2"><span>2×</span></button><button data-plyr="speed"
+                  type="button" role="menuitemradio" class="plyr__control" aria-checked="false"
+                  value="4"><span>4×</span></button></div>
+            </div>
+          </div>
+        </div>
+      </div><button class="plyr__controls__item plyr__control" type="button" data-plyr="pip" aria-pressed="false"><svg
+          aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-pip"></use>
+        </svg><span class="plyr__tooltip">Мини-проигрыватель</span></button><a
+        class="plyr__controls__item plyr__control" href="http://localhost:3000/path/to/video.mp4" target="_blank"
+        download="" data-plyr="download" aria-pressed="false"><svg aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-download"></use>
+        </svg><span class="plyr__tooltip">Скачать</span></a><button class="plyr__controls__item plyr__control"
+        type="button" data-plyr="fullscreen" aria-pressed="false"><svg class="icon--pressed" aria-hidden="true"
+          focusable="false">
+          <use xlink:href="#plyr-exit-fullscreen"></use>
+        </svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false">
+          <use xlink:href="#plyr-enter-fullscreen"></use>
+        </svg><span class="label--pressed plyr__tooltip" >Выход из полноэкранного режима</span><span
+          class="label--not-pressed plyr__tooltip">Во весь экран</span></button>
+    </div>`
+].join("");
+
+
+
+
+
+
+// const controls =
+// 	[
+// 		'play-large', // The large play button in the center
+// 		'restart', // Restart playback
+// 		'rewind', // Rewind by the seek time (default 10 seconds)
+// 		'play', // Play/pause playback
+// 		'fast-forward', // Fast forward by the seek time (default 10 seconds)
+// 		'progress', // The progress bar and scrubber for playback and buffering
+// 		'current-time', // The current time of playback
+// 		'duration', // The full duration of the media
+// 		'mute', // Toggle mute
+// 		'volume', // Volume control
+// 		'captions', // Toggle captions
+// 		'settings', // Settings menu
+// 		'pip', // Picture-in-picture (currently Safari only)
+// 		'airplay', // Airplay (currently Safari only)
+// 		'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+// 		'fullscreen' // Toggle fullscreen
+// 	];
 
 const i18n =
-	{
-		restart: 'Повтор',
-		rewind: 'Назад на {seektime} сек',
-		play: 'Воспроизвести',
-		pause: 'Пауза',
-		fastForward: 'Вперёд на {seektime} сек',
-		seek: 'Seek',
-		seekLabel: '{currentTime} of {duration}',
-		played: 'Played',
-		buffered: 'Бюферизация',
-		currentTime: 'Текущее время',
-		duration: 'Продолжительность',
-		volume: 'Volume',
-		mute: 'Без звука',
-		unmute: 'Включить звук',
-		enableCaptions: 'Включить субтитры',
-		disableCaptions: 'Выключить субтитры',
-		download: 'Скачать',
-		enterFullscreen: 'Во весь экран',
-		exitFullscreen: 'Выход из полноэкранного режима',
-		frameTitle: 'Player for {title}',
-		captions: 'Язык',
-		settings: 'Опции',
-		pip: 'Мини-проигрыватель',
-		menuBack: 'Go back to previous menu',
-		speed: 'Скорость',
-		normal: 'Нормальная',
-		quality: 'Качество',
-		loop: 'Loop',
-		start: 'Start',
-		end: 'End',
-		all: 'All',
-		reset: 'Сброс',
-		disabled: 'Откоючено',
-		enabled: 'Включено',
-		advertisement: 'Реклама',
-		qualityBadge: {
-			2160: '4K',
-			1440: 'HD',
-			1080: 'HD',
-			720: 'HD',
-			576: 'SD',
-			480: 'SD'
-	}
+{
+    restart: 'Повтор',
+    rewind: 'Назад на {seektime} сек',
+    play: 'Воспроизвести',
+    pause: 'Пауза',
+    fastForward: 'Вперёд на {seektime} сек',
+    seek: 'Seek',
+    seekLabel: '{currentTime} of {duration}',
+    played: 'Played',
+    buffered: 'Бюферизация',
+    currentTime: 'Текущее время',
+    duration: 'Продолжительность',
+    volume: 'Volume',
+    mute: 'Без звука',
+    unmute: 'Включить звук',
+    enableCaptions: 'Включить субтитры',
+    disableCaptions: 'Выключить субтитры',
+    download: 'Скачать',
+    enterFullscreen: 'Во весь экран',
+    exitFullscreen: 'Выход из полноэкранного режима',
+    frameTitle: 'Player for {title}',
+    captions: 'Язык',
+    settings: 'Опции',
+    pip: 'Мини-проигрыватель',
+    menuBack: 'Go back to previous menu',
+    speed: 'Скорость',
+    normal: 'Нормальная',
+    quality: 'Качество',
+    loop: 'Loop',
+    start: 'Start',
+    end: 'End',
+    all: 'All',
+    reset: 'Сброс',
+    disabled: 'Откоючено',
+    enabled: 'Включено',
+    advertisement: 'Реклама',
+    qualityBadge: {
+        2160: '4K',
+        1440: 'HD',
+        1080: 'HD',
+        720: 'HD',
+        576: 'SD',
+        480: 'SD'
+    }
 };
 
 const player = new Plyr('#player', {
-	// captions: {
-	// 	active: false
-	// },
-	tooltips: {
-		controls: true,
-		seek: true
-	},
-	controls,
-	i18n
+    // captions: {
+    // 	active: false
+    // },
+    tooltips: {
+        controls: true,
+        seek: true
+    },
+    controls,
+    i18n
 });
 
 
@@ -261,6 +387,19 @@ const player = new Plyr('#player', {
 
 
 window.player = player;
+
+const Menu = document.querySelector('[data-plyr="settings"]');
+const conttt = document.querySelector('[role="menu"]');
+const conter = document.querySelector('.plyr__menu__container');
+
+
+Menu.addEventListener("click", () => {
+    // cont.setAttribute(hidden, para);
+    console.log("click")
+    conter.classList.toggle("plyr__menu__container--open")
+});
+
+
 
 
 
