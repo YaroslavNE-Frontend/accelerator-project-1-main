@@ -235,7 +235,7 @@ a.plyr__control:before {
 
 .plyr__controls .plyr__controls__item:first-child {
     margin-left: 0;
-    margin-right: auto
+    // margin-right: auto
 }
 
 .plyr__controls .plyr__controls__item.plyr__progress__container {
@@ -692,11 +692,11 @@ a.plyr__control:before {
     margin-right: var(--plyr-control-spacing, 10px)
 }
 
-@media (max-width:767px) {
-    .plyr__time+.plyr__time {
-        display: none
-    }
-}
+// @media (max-width:767px) {
+//     .plyr__time+.plyr__time {
+//         display: none
+//     }
+// }
 
 .plyr__tooltip {
     background: #fff;
@@ -1105,7 +1105,8 @@ a.plyr__control:before {
 }
 
 .plyr--full-ui.plyr--video .plyr__control--overlaid {
-    display: block
+    display: block;
+    top: 40%;
 }
 
 .plyr--full-ui.plyr--video input[type=range]::-webkit-slider-runnable-track {
@@ -1447,7 +1448,6 @@ a.plyr__control:before {
 @media (min-width: 320px) {
     .plyr--video .plyr__controls {
         display: flex;
-        flex-wrap: wrap;
         width: 100%;
         height: auto;
         padding: 10px;
@@ -1455,4 +1455,95 @@ a.plyr__control:before {
         padding-top: 35px;
         padding-top: calc(var(--plyr-control-spacing, 10px)* 3.5);
     }
+}
+
+
+
+.plyr__controls__item.plyr__control[data-plyr="rewind"], 
+.plyr__controls__item.plyr__control[data-plyr="fast-forward"] {
+    @media screen and (min-width: 320px) {
+        position: absolute;
+        top: -40%;
+        transform: translate(-50%, -50%);
+    }   
+}
+
+.plyr__controls__item.plyr__control[data-plyr="rewind"] {
+    @media screen and (min-width: 320px) {
+        left: 35%;
+    }   
+}
+
+.plyr__controls__item.plyr__control[data-plyr="fast-forward"] {
+    @media screen and (min-width: 320px) {
+        right: 27%;
+    }   
+}
+.plyr__controls__item.plyr__control[data-plyr="download"] {
+    position: absolute;
+    top: -100px;
+    right: 0;
+}
+
+
+
+// .plyr {
+//     position: relative;
+//     &::before {
+//         display: block;
+//         position: absolute;
+//         content: '';
+//         width: 30px;
+//         height: 30px;
+//         background-color: #000;
+//         z-index: 999;
+//     }
+//     &:hover::before {
+//         display: none;
+//     }
+// }
+
+.plyr__controls .plyr__controls__item.plyr__progress__container  {
+    @media screen and (min-width: 320px) {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 25px;
+        top: 10px;
+        margin: 0;
+        padding-left: 25px;
+        padding-right: 20px;
+        width: calc(100% - 60px);
+    }
+}
+
+.plyr__progress  {
+    @media screen and (min-width: 320px) {
+        margin-right: 0;
+        flex: 0 0 100%;
+    }
+}
+
+
+
+.plyr__time--current {
+    @media screen and (min-width: 320px) {
+        position: absolute;
+        left: 5px;
+        top: 8px;
+    }
+
+}
+
+.plyr__time--duration {
+    @media screen and (min-width: 320px) {
+        position: absolute;
+        right: 0;
+        top: 8px;
+        &::before {
+            display: none;
+        }
+    }
+
 }
