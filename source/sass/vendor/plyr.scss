@@ -1409,13 +1409,13 @@ a.plyr__control:before {
     display: none !important
 }
 
-.plyr__menu__container {
-    display: none;
-}
+// .plyr__menu__container {
+//     display: none;
+// }
 
-.plyr__menu__container--open {
-    display: block;
-}
+// .plyr__menu__container--open {
+//     display: block;
+// }
 
 // .plyr__control {
      
@@ -1424,3 +1424,35 @@ a.plyr__control:before {
 
 //     }
 // }
+
+// #plyr-settings-912 > div > #plyr-settings-912-home,
+// #plyr-settings-912 > div > #plyr-settings-912-captions,
+// #plyr-settings-912 > div > #plyr-settings-912-quality,
+// #plyr-settings-912 > div > #plyr-settings-912-speed {
+//     display: none !important
+// }
+
+// #plyr-settings-912-home--open,
+// #plyr-settings-912-captions--open,
+// #plyr-settings-912-quality--open,
+// #plyr-settings-912-speed--open {
+//     display: block !important
+// }
+
+// .plyr__menu__container:after {
+//     display: none !important
+// }
+
+
+@media (min-width: 320px) {
+    .plyr--video .plyr__controls {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        padding: var(--plyr-control-spacing, 10px);
+        padding-top: 35px;
+        padding-top: calc(var(--plyr-control-spacing, 10px)* 3.5);
+    }
+}
