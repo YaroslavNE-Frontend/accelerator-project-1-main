@@ -235,7 +235,7 @@ a.plyr__control:before {
 
 .plyr__controls .plyr__controls__item:first-child {
     margin-left: 0;
-    // margin-right: auto
+    margin-right: auto
 }
 
 .plyr__controls .plyr__controls__item.plyr__progress__container {
@@ -1419,7 +1419,7 @@ a.plyr__control:before {
 // }
 
 // .plyr__control {
-     
+
 //         &~.plyr__menu__container {
 //             display: none;
 
@@ -1459,31 +1459,35 @@ a.plyr__control:before {
 
 
 
-.plyr__controls__item.plyr__control[data-plyr="rewind"], 
+.plyr__controls__item.plyr__control[data-plyr="rewind"],
 .plyr__controls__item.plyr__control[data-plyr="fast-forward"] {
     @media screen and (min-width: 320px) {
         position: absolute;
         top: -40%;
         transform: translate(-50%, -50%);
-    }   
+    }
 }
 
 .plyr__controls__item.plyr__control[data-plyr="rewind"] {
     @media screen and (min-width: 320px) {
         left: 35%;
-    }   
+    }
 }
 
 .plyr__controls__item.plyr__control[data-plyr="fast-forward"] {
     @media screen and (min-width: 320px) {
         right: 27%;
-    }   
+    }
 }
-.plyr__controls__item.plyr__control[data-plyr="download"] {
-    position: absolute;
-    top: -100px;
-    right: 0;
+
+.plyr__controls__item.plyr__volume input[data-plyr="volume"] {
+  @media screen and (max-width: 320px) {
+    display: none;
 }
+
+}
+
+
 
 
 
@@ -1546,4 +1550,15 @@ a.plyr__control:before {
         }
     }
 
+}
+
+
+.plyr--video .plyr__control:focus-visible,
+.plyr--video .plyr__control:hover,
+.plyr--video .plyr__control[aria-expanded=true] {
+    background: rgba(93, 88, 88, 0.3);
+    color: #fff;
+    color: var(--plyr-video-control-color-hover, #fff);
+    transition: 0.3s ease-in-out;
+    border-radius: 30%;
 }

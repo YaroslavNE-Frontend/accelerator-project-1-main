@@ -1,12 +1,11 @@
 // https://swiperjs.com/get-started#installation
-// import Swiper from "swiper";
-// import {Navigation, Pagination} from "swiper/modules";
+// import Swiper from 'swiper';
+// import {Navigation, Pagination} from 'swiper/modules';
 // import 'swiper/css';
 
-// const { getAttribute } = require("video.js/dist/types/utils/dom");
+// const { getAttribute } = require('video.js/dist/types/utils/dom');
 
-const i18n =
-{
+const i18n = {
   restart: 'Повтор',
   rewind: 'Назад на {seektime} сек',
   play: 'Воспроизвести',
@@ -48,8 +47,8 @@ const i18n =
     1080: 'HD',
     720: 'HD',
     576: 'SD',
-    480: 'SD'
-  }
+    480: 'SD',
+  },
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,49 +73,54 @@ document.addEventListener('DOMContentLoaded', () => {
     'pip', // Picture-in-picture (currently Safari only)
     'airplay', // Airplay (currently Safari only)
     'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
-    'fullscreen' // Toggle fullscreen
+    'fullscreen', // Toggle fullscreen
   ];
-  const player = Plyr.setup('#player', { controls,  i18n
-    // selectors: {
-    //   buttons: {
-    //     rewind: '[data-plyr="rewind"]',
-    //   },
-    // },
+  const Player = Plyr.setup('#player', {
+    controls,
+    i18n,
   });
-  // player.config.selectors.buttons.rewind
+
 });
 
-let Plays = document.querySelector(".plyr__control plyr__control--overlaid");
+// let Plays = document.querySelector('.plyr__control plyr__control--overlaid');
 
-console.log(Plays.innerHTML + "text");
-const PlyrPlay = document.querySelector('[data-plyr="play"]');
+// console.log(Plays);
+// const PlyrPlay = document.querySelector('[data-plyr='play']');
 
-let Play = document.querySelector(".plyr__control--pressed");
+// let Play = document.querySelector('.plyr__control--pressed');
 
+// const Inputs = document.querySelector('inp');
 
-
-// document.addEventListener('keydown', event => {
-//   if (event.key === 'Enter') {
-//     console.log('Enter key pressed');
+// Inputs.addEventListener('keydown', event => {
+//   if (event.keyCode === 13) {
+//     console.log(this.value);
 //   }
 // });
 
 // if (e.key === 'Enter' || e.keyCode === 13) {
-//   PlyrPlay.addEventListener('keydown',  (e) => {
+//   Inputs.addEventListener('keydown', (e) => {
 //     alert('Дорогу осилит идущий');
 // })
 //   // Do something
 // }
 
 
-
-// body.addEventListener("keydown", function (event) {
+// const Inputs = document.querySelector('#inp');
+// function func(e) {
 //   if (e.key === 'Enter' || e.keyCode === 13) {
-//     console.log("Нажата клавиша " + event.key)
+//     console.log(`Нажата клавиша ${e.key}`);
 //   }
-// })
+// }
 
+// Inputs.addEventListener('keydown', func, false);
 
+// const PlyrWrap = document.querySelector('.plyr__video-wrapper');
+// function func(e) {
+//   if (e.key === 'Enter' || e.keyCode === 13) {
+//     console.log(`Нажата клавиша ${e.key}`);
+//   }
+// }
 
+// PlyrWrap.addEventListener('keydown', func, false);
 
 
