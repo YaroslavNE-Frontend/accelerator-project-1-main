@@ -1481,33 +1481,13 @@ a.plyr__control:before {
 }
 
 .plyr__controls__item.plyr__volume input[data-plyr="volume"] {
-  @media screen and (max-width: 320px) {
-    display: none;
-}
+    @media screen and (max-width: 320px) {
+        display: none;
+    }
 
 }
 
-
-
-
-
-// .plyr {
-//     position: relative;
-//     &::before {
-//         display: block;
-//         position: absolute;
-//         content: '';
-//         width: 30px;
-//         height: 30px;
-//         background-color: #000;
-//         z-index: 999;
-//     }
-//     &:hover::before {
-//         display: none;
-//     }
-// }
-
-.plyr__controls .plyr__controls__item.plyr__progress__container  {
+.plyr__controls .plyr__controls__item.plyr__progress__container {
     @media screen and (min-width: 320px) {
         position: absolute;
         display: flex;
@@ -1522,7 +1502,7 @@ a.plyr__control:before {
     }
 }
 
-.plyr__progress  {
+.plyr__progress {
     @media screen and (min-width: 320px) {
         margin-right: 0;
         flex: 0 0 100%;
@@ -1545,6 +1525,7 @@ a.plyr__control:before {
         position: absolute;
         right: 0;
         top: 8px;
+
         &::before {
             display: none;
         }
@@ -1561,4 +1542,24 @@ a.plyr__control:before {
     color: var(--plyr-video-control-color-hover, #fff);
     transition: 0.3s ease-in-out;
     border-radius: 30%;
+}
+
+
+.plyr__control--overlaid {
+    background: #00b2ff;
+    background: var(--plyr-video-control-background-hover, var(--plyr-color-main, var(--plyr-color-main, #00b2ff)));
+    border: 0;
+    border-radius: 100%;
+    color: #fff;
+    color: var(--plyr-video-control-color, #fff);
+    display: none;
+    left: 50%;
+    opacity: 0.9;
+    padding: 15px;
+    padding: calc(var(--plyr-control-spacing, 10px)* 1.5);
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    z-index: 2;
 }
