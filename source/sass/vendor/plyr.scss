@@ -30,25 +30,27 @@
 }
 
 .plyr {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    align-items: center;
-    direction: ltr;
-    display: flex;
-    flex-direction: column;
-    font-family: inherit;
-    font-family: var(--plyr-font-family, inherit);
-    font-variant-numeric: tabular-nums;
-    font-weight: 400;
-    font-weight: var(--plyr-font-weight-regular, 400);
-    line-height: 1.7;
-    line-height: var(--plyr-line-height, 1.7);
-    max-width: 100%;
-    min-width: 200px;
-    position: relative;
-    text-shadow: none;
-    transition: box-shadow .3s ease;
-    z-index: 0
+    @media screen and (min-width: 320px) {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        align-items: center;
+        direction: ltr;
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        font-family: var(--plyr-font-family, inherit);
+        font-variant-numeric: tabular-nums;
+        font-weight: 400;
+        font-weight: var(--plyr-font-weight-regular, 400);
+        line-height: 1.7;
+        line-height: var(--plyr-line-height, 1.7);
+        max-width: 100%;
+        min-width: 200px;
+        position: relative;
+        text-shadow: none;
+        transition: box-shadow .3s ease;
+        z-index: 0
+      }
 }
 
 .plyr audio,
@@ -234,8 +236,14 @@ a.plyr__control:before {
 }
 
 .plyr__controls .plyr__controls__item:first-child {
-    margin-left: 0;
-    margin-right: auto
+  
+    @media screen and (min-width:320px) {
+        margin-left: 0;
+        margin-right: auto
+    }
+    @media screen and (min-width:768px) {
+        margin-right: 0
+    }
 }
 
 .plyr__controls .plyr__controls__item.plyr__progress__container {
@@ -493,12 +501,12 @@ a.plyr__control:before {
 .plyr--full-ui input[type=range] {
     -webkit-appearance: none;
     appearance: none;
-    background: #0000;
+    background: rgba(0, 0, 0, 0);
     border: 0;
     border-radius: 26px;
     border-radius: calc(var(--plyr-range-thumb-height, 13px)*2);
-    color: #00b2ff;
-    color: var(--plyr-range-fill-background, var(--plyr-color-main, var(--plyr-color-main, #00b2ff)));
+    // color: #00b2ff;
+    // color: var(--plyr-range-fill-background, var(--plyr-color-main, var(--plyr-color-main, #00b2ff)));
     display: block;
     height: 19px;
     height: calc(var(--plyr-range-thumb-active-shadow-width, 3px)*2 + var(--plyr-range-thumb-height, 13px));
@@ -512,7 +520,7 @@ a.plyr__control:before {
 .plyr--full-ui input[type=range]::-webkit-slider-runnable-track {
     background: #0000;
     background-image: linear-gradient(90deg, currentColor 0, #0000 0);
-    background-image: linear-gradient(to right, currentColor var(--value, 0), #0000 var(--value, 0));
+    background-image: linear-gradient(to right, rgb(16, 38, 84) var(--value, 0), #0000 var(--value, 0));
     border: 0;
     border-radius: 2.5px;
     border-radius: calc(var(--plyr-range-track-height, 5px)/2);
@@ -658,11 +666,11 @@ a.plyr__control:before {
 }
 
 .plyr__poster {
-    background-color: #000;
-    background-color: var(--plyr-video-background, var(--plyr-video-background, #000));
+    background-color: #000000;
+    // background-color: var(--plyr-video-background, var(--plyr-video-background, #000));
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 100%;
     left: 0;
     opacity: 0;
@@ -674,6 +682,7 @@ a.plyr__control:before {
 }
 
 .plyr--stopped.plyr__poster-enabled .plyr__poster {
+    height: 100%;
     opacity: 1
 }
 
@@ -1070,24 +1079,24 @@ a.plyr__control:before {
     color: var(--plyr-video-control-color-hover, #fff)
 }
 
-.plyr__control--overlaid {
-    background: #00b2ff;
-    background: var(--plyr-video-control-background-hover, var(--plyr-color-main, var(--plyr-color-main, #00b2ff)));
-    border: 0;
-    border-radius: 100%;
-    color: #fff;
-    color: var(--plyr-video-control-color, #fff);
-    display: none;
-    left: 50%;
-    opacity: .9;
-    padding: 15px;
-    padding: calc(var(--plyr-control-spacing, 10px)*1.5);
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    transition: .3s;
-    z-index: 2
-}
+// .plyr__control--overlaid {
+//     background: #00b2ff;
+//     background: var(--plyr-video-control-background-hover, var(--plyr-color-main, var(--plyr-color-main, #00b2ff)));
+//     border: 0;
+//     border-radius: 100%;
+//     color: #fff;
+//     color: var(--plyr-video-control-color, #fff);
+//     display: none;
+//     left: 50%;
+//     opacity: .9;
+//     padding: 15px;
+//     padding: calc(var(--plyr-control-spacing, 10px)*1.5);
+//     position: absolute;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     transition: .3s;
+//     z-index: 2
+// }
 
 .plyr__control--overlaid svg {
     left: 2px;
@@ -1104,10 +1113,10 @@ a.plyr__control:before {
     visibility: hidden
 }
 
-.plyr--full-ui.plyr--video .plyr__control--overlaid {
-    display: block;
-    top: 40%;
-}
+// .plyr--full-ui.plyr--video .plyr__control--overlaid {
+//     display: block;
+//     top: 40%;
+// }
 
 .plyr--full-ui.plyr--video input[type=range]::-webkit-slider-runnable-track {
     background-color: #ffffff40;
@@ -1445,7 +1454,7 @@ a.plyr__control:before {
 // }
 
 
-@media (min-width: 320px) {
+@media screen and (min-width: 320px) {
     .plyr--video .plyr__controls {
         display: flex;
         width: 100%;
@@ -1457,34 +1466,40 @@ a.plyr__control:before {
     }
 }
 
-
+.plyr__controls__item.plyr__control[data-plyr="rewind"] {
+    @media screen and (min-width: 320px) {
+        left: 30%;
+    }
+}
 
 .plyr__controls__item.plyr__control[data-plyr="rewind"],
 .plyr__controls__item.plyr__control[data-plyr="fast-forward"] {
     @media screen and (min-width: 320px) {
         position: absolute;
-        top: -40%;
+        top: -60%;
         transform: translate(-50%, -50%);
     }
-}
-
-.plyr__controls__item.plyr__control[data-plyr="rewind"] {
-    @media screen and (min-width: 320px) {
-        left: 35%;
+    @media screen and (min-width: 768px) {
+        position: relative;
+        left: 0%;
+        top: 0%;
+        transform: none;
     }
 }
 
 .plyr__controls__item.plyr__control[data-plyr="fast-forward"] {
     @media screen and (min-width: 320px) {
-        right: 27%;
+        right: 20%;
+    }
+    @media screen and (min-width: 768px) {
+       margin-right: auto;
     }
 }
 
 .plyr__controls__item.plyr__volume input[data-plyr="volume"] {
-    @media screen and (max-width: 320px) {
+    @media screen and (min-width: 320px) and (max-width:768px) {
         display: none;
     }
-
 }
 
 .plyr__controls .plyr__controls__item.plyr__progress__container {
@@ -1534,20 +1549,58 @@ a.plyr__control:before {
 }
 
 
+// .plyr--video .plyr__control:focus-visible,
+// .plyr--video .plyr__control:hover,
+// .plyr--video .plyr__control[aria-expanded=true] {
+//     background: rgba(93, 88, 88, 0.3);
+//     color: #fff;
+//     color: var(--plyr-video-control-color-hover, #fff);
+//     transition: 0.3s ease-in-out;
+//     border-radius: 30%;
+// }
+
+
+
+
+.plyr__control--overlaid:focus,
+.plyr__control--overlaid:hover {
+    opacity: 1
+}
+
+.plyr__control--overlaid svg {
+    display: none;
+}
+
+.plyr--full-ui.plyr--video .plyr__control--overlaid {
+    @media screen and (min-width:320px) {
+        display: block;
+        top: 35%;
+    }
+
+    @media screen and (min-width:768px) {
+        top: 50%;
+    }
+  
+}
+
 .plyr--video .plyr__control:focus-visible,
 .plyr--video .plyr__control:hover,
 .plyr--video .plyr__control[aria-expanded=true] {
-    background: rgba(93, 88, 88, 0.3);
+    background: linear-gradient(151.36deg, rgb(237, 2, 51) 6.982%,rgb(0, 62, 183) 116.498%);
     color: #fff;
     color: var(--plyr-video-control-color-hover, #fff);
     transition: 0.3s ease-in-out;
-    border-radius: 30%;
+    border-radius: 10%;
 }
 
-
 .plyr__control--overlaid {
-    background: #00b2ff;
-    background: var(--plyr-video-control-background-hover, var(--plyr-color-main, var(--plyr-color-main, #00b2ff)));
+    background: url("../../img/sprite/play_btn.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px !important;
+    height: 100px;
+    // background: var(--plyr-video-control-background-hover, var(--plyr-color-main, var(--plyr-color-main, #00b2ff)));
+    padding: 0;
     border: 0;
     border-radius: 100%;
     color: #fff;
@@ -1562,4 +1615,37 @@ a.plyr__control:before {
     transform: translate(-50%, -50%);
     transition: 0.3s;
     z-index: 2;
+}
+
+.plyr__control--overlaid:hover[data-plyr="play"] {
+    background: url("../../img/sprite/play_btn-hover.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px !important;
+    height: 100px;
+}
+
+.plyr__control--overlaid:focus[data-plyr="play"] {
+    background: url("../../img/sprite/play_btn-focus.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px !important;
+    height: 100px;
+}
+
+.plyr__control--overlaid:focus[data-plyr="play"] {
+    background: url("../../img/sprite/play_btn-active.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px !important;
+    height: 100px;
+}
+
+.plyr__control--overlaid:disabled[data-plyr="play"],
+.plyr__control--overlaid[disabled][data-plyr="play"] {
+    background: url("../../img/sprite/play_btn-disabled.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px !important;
+    height: 100px;
 }
