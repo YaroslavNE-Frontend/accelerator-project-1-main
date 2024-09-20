@@ -5,6 +5,9 @@
 
 // const { getAttribute } = require('video.js/dist/types/utils/dom');
 
+
+import Plyr from 'plyr';
+// import "plyr/dist/plyr.css"
 const i18n = {
   restart: 'Повтор',
   rewind: 'Назад на {seektime} сек',
@@ -75,52 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
     'fullscreen', // Toggle fullscreen
   ];
-  const Player = Plyr.setup('#player', {
+  const Player = new Plyr('#player', {
     controls,
     i18n,
+    iconPrefix: 'player'
   });
-
 });
-
-// let Plays = document.querySelector('.plyr__control plyr__control--overlaid');
-
-// console.log(Plays);
-// const PlyrPlay = document.querySelector('[data-plyr='play']');
-
-// let Play = document.querySelector('.plyr__control--pressed');
-
-// const Inputs = document.querySelector('inp');
-
-// Inputs.addEventListener('keydown', event => {
-//   if (event.keyCode === 13) {
-//     console.log(this.value);
-//   }
-// });
-
-// if (e.key === 'Enter' || e.keyCode === 13) {
-//   Inputs.addEventListener('keydown', (e) => {
-//     alert('Дорогу осилит идущий');
-// })
-//   // Do something
-// }
-
-
-// const Inputs = document.querySelector('#inp');
-// function func(e) {
-//   if (e.key === 'Enter' || e.keyCode === 13) {
-//     console.log(`Нажата клавиша ${e.key}`);
-//   }
-// }
-
-// Inputs.addEventListener('keydown', func, false);
-
-// const PlyrWrap = document.querySelector('.plyr__video-wrapper');
-// function func(e) {
-//   if (e.key === 'Enter' || e.keyCode === 13) {
-//     console.log(`Нажата клавиша ${e.key}`);
-//   }
-// }
-
-// PlyrWrap.addEventListener('keydown', func, false);
-
-
