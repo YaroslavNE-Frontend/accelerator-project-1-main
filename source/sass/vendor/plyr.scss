@@ -1460,16 +1460,20 @@ a.plyr__control:before {
     right: 20%;
   }
 
-  @media screen and (min-width: 768px) {
-    margin-right: auto;
-  }
+  // @media screen and (min-width: 768px) {
+  //   margin-right: auto;
+  // }
 }
 
-.plyr__controls__item.plyr__volume input[data-plyr="volume"] {
-  @media screen and (min-width: 320px) and (max-width:768px) {
-    display: none;
-  }
-}
+// .plyr__volume input[type=range] {
+//   @media screen and (min-width: 320px) and (max-width:1366px) {
+//     display: none;
+//   }
+// }
+
+// input[data-plyr="volume"] + .plyr__control--pressed[aria-pressed="true"]{
+// display: none;
+// }
 
 .plyr__controls .plyr__controls__item.plyr__progress__container {
   @media screen and (min-width: 320px) {

@@ -1,17 +1,74 @@
 .about {
     background-color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 30px;
+        padding-bottom: 120px;
+    }
+
+    @media screen and (min-width: 1366px) {
+        padding-top: 60px;
+        padding-bottom: 240px;
+    }
 }
 
-.about__wrapper {}
+.about__wrapper {
+    display: flex;
+    justify-content: center;
+}
 
-.about__content {}
+.about__content {
+    @media screen and (min-width: 768px) {
+        max-width: 502px;
+        text-align: center;
+    }
+}
 
-.about__title {}
+.about__title {
+    margin-bottom: 53px;
+    color: #102654;
+    font-family: $AlumniSans;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+}
 
-.about__subtitle {}
+.about__subtitle {
+    color: #102654;
+    font-family: $RobotoCondensed;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+}
 
-.about__text {}
+.about__text {
+    color: #102654;
+    font-family: $RobotoCondensed;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+}
 
-.about__gallery {}
+.about__gallery {
+    @media screen and (min-width: 768px) {
+        position: relative;
+    }
+}
 
-.hero__image {}
+.about__image {
+    margin: 36px 0;
+}
+
+.about__gallery .plyr {
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        left: 30%;
+        bottom: -36px;
+        width: 270px;
+        height: 170px;
+    }
+  
+    
+}
