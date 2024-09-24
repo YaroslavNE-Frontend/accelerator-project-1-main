@@ -5,10 +5,9 @@
 
 // const { getAttribute } = require('video.js/dist/types/utils/dom');
 
-
 // import Plyr from 'plyr';
 // import { compile } from 'sass';
-// // import "plyr/dist/plyr.css"
+// // import 'plyr/dist/plyr.css'
 // const i18n = {
 //   restart: 'Повтор',
 //   rewind: 'Назад на {seektime} сек',
@@ -91,17 +90,13 @@
 //   });
 // });
 
-
 // const PressedAttr = document.querySelector('plyr__volume');
-
-
 
 // if (PressedAttr.hasAttribute('aria-pressed', 'false')) {
 //   PressedAttr.classList.add('none')
 // } else {
 //   PressedAttr.classList.remove('none')
 // }
-
 
 // const controls = [
 //       'play-large', // The large play button in the center
@@ -131,8 +126,6 @@
 //   muted: true
 // })
 
-
-
 // const video = document.getElementById('player');
 // // video.addEventListener('timeupdate', (e) => console.log('time updated!'));
 // video.addEventListener('enterfullscreen', (e) => {
@@ -141,167 +134,172 @@
 //   console.log(plyr.fullscreen.enter().value)
 // });
 
+const PlayPauseBtn = document.querySelector('.play-pause-btn');
+const theaterBtn = document.querySelector('.theater-btn');
+const fullScreenBtn = document.querySelector('.full-screen-btn');
+const miniPlayerBtn = document.querySelector('.mini-player-btn');
+const muteBtn = document.querySelector('.mute-btn');
+const currentTimeElem = document.querySelector('.current-time');
+const totalTimeElem = document.querySelector('.total-time');
+const volumeSlider = document.querySelector('.volume-slider');
+const VideoContainer = document.querySelector('.video-container');
+const timelineContainer = document.querySelector('.timeline-container');
+const video = document.querySelector('video');
 
+document.addEventListener('keydown', (e) => {
+  const tagName = document.activeElement.tagName.toLocaleLowerCase();
 
-
-const PlayPauseBtn = document.querySelector('.play-pause-btn')
-const theaterBtn = document.querySelector('.theater-btn')
-const fullScreenBtn = document.querySelector('.full-screen-btn')
-const miniPlayerBtn = document.querySelector('.mini-player-btn')
-const muteBtn = document.querySelector('.mute-btn')
-const currentTimeElem = document.querySelector('.current-time')
-const totalTimeElem = document.querySelector('.total-time')
-const volumeSlider = document.querySelector('.volume-slider')
-const VideoContainer = document.querySelector('.video-container')
-const video = document.querySelector('video')
-
-document.addEventListener('keydown', e => {
-  const tagName = document.activeElement.tagName.toLocaleLowerCase()
-
-  if(tagName === 'input') return
+  if (tagName === 'input') return;
 
   switch (e.key.toLowerCase()) {
     case ' ':
-      if (tagName === 'button') return
+      if (tagName === 'button') return;
+
     case 'k':
-      TogglePlay()
-      break
-      case 'f':
-        toggleFullScreenMode()
-        break
-        case 't':
-          toggleTheaterMode()
-          break
-          case 'i':
-            toggleMiniPlayerMode()
-            break
-            case 'm':
-              toggleMute()
-              break
+      TogglePlay();
+      break;
+    case 'f':
+      toggleFullScreenMode();
+      break;
+    case 't':
+      toggleTheaterMode();
+      break;
+    case 'i':
+      toggleMiniPlayerMode();
+      break;
+    case 'm':
+      toggleMute();
+      break;
+    case 'arrowleft':
+    case 'j':
+      skip(-5);
+      break;
+    case 'arrowright':
+    case 'l':
+      skip(5);
+      break;
   }
-})
+});
 
+// Duration 53-40 https://www.youtube.com/watch?v=ZeNyjnneq_w&t=2088s
 
-// Duration 51-39 https://www.youtube.com/watch?v=ZeNyjnneq_w&t=2088s
-
+// Duration
 video.addEventListener('loadeddata', () => {
-  totalTimeElem.textContent = formatDuration(video.duration)
-})
+  totalTimeElem.textContent = formatDuration(video.duration);
+});
 
 video.addEventListener('timeupdate', () => {
-  currentTimeElem.textContent = formatDuration(video.currentTime)
-})
+  currentTimeElem.textContent = formatDuration(video.currentTime);
+  const percent = video.currentTime / video.duration;
+  timelineContainer.style.setProperty('--progress-position', percent);
+});
 
 const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
-  minimumIntegerDigits: 2
-})
+  minimumIntegerDigits: 2,
+});
 function formatDuration(time) {
-  const seconds = Math.floor(time % 60)
-  const minutes = Math.floor(time / 60) % 60
-  const hours = Math.floor(time % 3600)
-
-  if(hours === 0) {
-    return `${minutes}:${leadingZeroFormatter.format(seconds)}`
+  const seconds = Math.floor(time % 60);
+  const minutes = Math.floor(time / 60) % 60;
+  const hours = Math.floor(time / 3600);
+  if (hours === 0) {
+    return `${minutes}:${leadingZeroFormatter.format(seconds)}`;
   } else {
     return `${hours}:${leadingZeroFormatter.format(
       minutes
-    )}:${leadingZeroFormatter.format(seconds)}`
+    )}:${leadingZeroFormatter.format(seconds)}`;
   }
 }
 
+function skip(duration) {
+  video.currentTime += duration;
+}
 
+// Volume
 
-// Volume 
-
-muteBtn.addEventListener('click', toggleMute)
-volumeSlider.addEventListener('input', e => {
-  video.volume = e.target.value
-  video.muted = e.target.value === 0
-})
+muteBtn.addEventListener('click', toggleMute);
+volumeSlider.addEventListener('input', (e) => {
+  video.volume = e.target.value;
+  video.muted = e.target.value === 0;
+});
 
 function toggleMute() {
-  video.muted = !video.muted
+  video.muted = !video.muted;
 }
 
 video.addEventListener('volumechange', () => {
-  volumeSlider.value = video.volume
-  let volumeLevel
-  if(video.muted || video.volume === 0) {
-    volumeSlider.value = 0
-    volumeLevel = 'muted'
-  } else if (video.volume >= .5) {
-    volumeLevel = 'hight'
+  volumeSlider.value = video.volume;
+  let volumeLevel;
+  if (video.muted || video.volume === 0) {
+    volumeSlider.value = 0;
+    volumeLevel = 'muted';
+  } else if (video.volume >= 0.5) {
+    volumeLevel = 'hight';
   } else {
-    volumeLevel = 'low'
+    volumeLevel = 'low';
   }
-    VideoContainer.dataset.volumeLevel = volumeLevel
-})
+  VideoContainer.dataset.volumeLevel = volumeLevel;
+});
 
-// View Modes 
+// View Modes
 
-theaterBtn.addEventListener('click', toggleTheaterMode)
-fullScreenBtn.addEventListener('click', toggleFullScreenMode)
-miniPlayerBtn.addEventListener('click', toggleMiniPlayerMode)
+theaterBtn.addEventListener('click', toggleTheaterMode);
+fullScreenBtn.addEventListener('click', toggleFullScreenMode);
+miniPlayerBtn.addEventListener('click', toggleMiniPlayerMode);
 
 function toggleTheaterMode() {
-  VideoContainer.classList.toggle('theater')
-  
+  VideoContainer.classList.toggle('theater');
 }
 
 function toggleFullScreenMode() {
   if (document.fullscreenElement == null) {
-    VideoContainer.requestFullscreen()
+    VideoContainer.requestFullscreen();
   } else {
-    document.exitFullscreen()
+    document.exitFullscreen();
   }
 }
 
 function toggleMiniPlayerMode() {
   if (VideoContainer.classList.contains('mini-player')) {
-   document.exitPictureInPicture()
+    document.exitPictureInPicture();
   } else {
-    video.requestPictureInPicture()
+    video.requestPictureInPicture();
   }
 }
 
 // function get_ya_browser(){
-//   var ua = navigator.userAgent;    
+//   var ua = navigator.userAgent;
 //   if (ua.search(/YaBrowser/) > 0) return miniPlayerBtn.disabled = true;
-//   return "Noyandex"
+//   return 'Noyandex'
 // }
 
 // var browser = get_ya_browser();
 // alert(browser);
 
 document.addEventListener('fullscreenchange', () => {
-  VideoContainer.classList.toggle('full-screen', document.fullscreenElement)
-})
+  VideoContainer.classList.toggle('full-screen', document.fullscreenElement);
+});
 
 video.addEventListener('enterpictureinpicture', () => {
-  VideoContainer.classList.add('mini-player')
-})
-
+  VideoContainer.classList.add('mini-player');
+});
 
 video.addEventListener('leavepictureinpicture', () => {
-  VideoContainer.classList.remove('mini-player')
-})
-
-
+  VideoContainer.classList.remove('mini-player');
+});
 
 // Play/Pause
 
-PlayPauseBtn.addEventListener('click', TogglePlay)
-video.addEventListener('click' , TogglePlay)
+PlayPauseBtn.addEventListener('click', TogglePlay);
+video.addEventListener('click', TogglePlay);
 
 function TogglePlay() {
-  video.paused ? video.play() : video.pause()
+  video.paused ? video.play() : video.pause();
 }
 
 video.addEventListener('play', () => {
-  VideoContainer.classList.remove('paused') 
-})
+  VideoContainer.classList.remove('paused');
+});
 
 video.addEventListener('pause', () => {
-  VideoContainer.classList.add('paused') 
-})
-
+  VideoContainer.classList.add('paused');
+});
