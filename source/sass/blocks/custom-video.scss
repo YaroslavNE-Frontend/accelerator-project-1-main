@@ -159,6 +159,32 @@ video {
     fill-opacity: 1;
 }
 
+.video-container.caption .caption-icon {
+    fill-opacity: 1;
+}
+
+.caption-container {
+    position: relative;
+}
+
+.submenu-list {
+    @include list-reset;
+    position: absolute;
+    top: -400px;
+    left: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+
+.submenu-list.open {
+    display: block;
+}
+.submenu-item {
+
+}
+
 
 
 .timeline-container {}
@@ -166,3 +192,6 @@ video {
 .controls {}
 
 .play-pause-btn {}
+
+
+

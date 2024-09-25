@@ -186,17 +186,58 @@ document.addEventListener('keydown', (e) => {
       break;
       case 'c':
         toggleCaptions()
-        break
+        break;
   }
 });
 
-// Captions
 
-const caption = video.textTracks[0]
-caption.mode = 'hidden'
+// Cap
+
+// for (let i = 0, L = tracks.length; i < L; i++) { /* tracks.length == 10 */
+//  if (tracks[i].language == 'en') {
+//  console.log(tracks[i]);
+//  }
+
+// const tracks = 
+
+// console.log(video.textTracks.length)
+
+// // Captions
+// const caption = video.textTracks.length
+// const subList = document.querySelector('.submenu-list')
+// const subInput = document.querySelector('.submenu-item-input')
+
+// CaptionsBtn.addEventListener('click', toggleCaption)
+
+// function toggleCaption() {
+//   VideoContainer.classList.toggle('caption')
+//   subList.classList.toggle('open')
+// }
+
+
+
+
+
+
+
+// const caption = video.textTracks[0]
+// caption.mode = 'hidden'
+
+// CaptionsBtn.addEventListener('click', toggleCaptions)
+// function toggleCaptions() {
+//   const isHidden = caption.mode === 'hidden'
+//   caption.mode = isHidden ? 'showing' : 'hidden'
+//   VideoContainer.classList.toggle('captions', isHidden)
+// }
+
+
+for (let i = 0; i < video.textTracks.length; i++) {
+  const caption = video.textTracks[i]
+  caption.mode = "hidden";
+  console.log(caption)
+}
 
 CaptionsBtn.addEventListener('click', toggleCaptions)
-
 function toggleCaptions() {
   const isHidden = caption.mode === 'hidden'
   caption.mode = isHidden ? 'showing' : 'hidden'
@@ -288,15 +329,6 @@ function toggleMiniPlayerMode() {
   }
 }
 
-// function get_ya_browser(){
-//   var ua = navigator.userAgent;
-//   if (ua.search(/YaBrowser/) > 0) return miniPlayerBtn.disabled = true;
-//   return 'Noyandex'
-// }
-
-// var browser = get_ya_browser();
-// alert(browser);
-
 document.addEventListener('fullscreenchange', () => {
   VideoContainer.classList.toggle('full-screen', document.fullscreenElement);
 });
@@ -332,3 +364,11 @@ video.addEventListener('pause', () => {
 
 
 
+
+
+
+
+
+
+
+  
