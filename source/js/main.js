@@ -145,6 +145,7 @@ const fullScreenBtn = document.querySelector('.full-screen-btn');
 const miniPlayerBtn = document.querySelector('.mini-player-btn');
 const muteBtn = document.querySelector('.mute-btn');
 const CaptionsBtn = document.querySelector('.caption-btn');
+const speedBtn = document.querySelector('.speed-btn');
 const currentTimeElem = document.querySelector('.current-time');
 const totalTimeElem = document.querySelector('.total-time');
 const volumeSlider = document.querySelector('.volume-slider');
@@ -191,51 +192,23 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// Cap
+// Playback Speed
 
-// for (let i = 0, L = tracks.length; i < L; i++) { /* tracks.length == 10 */
-//  if (tracks[i].language == 'en') {
-//  console.log(tracks[i]);
-//  }
+speedBtn.addEventListener('click', changePlaybackSpeed)
 
-// const tracks = 
-
-// console.log(video.textTracks.length)
-
-// // Captions
-// const caption = video.textTracks.length
-// const subList = document.querySelector('.submenu-list')
-// const subInput = document.querySelector('.submenu-item-input')
-
-// CaptionsBtn.addEventListener('click', toggleCaption)
-
-// function toggleCaption() {
-//   VideoContainer.classList.toggle('caption')
-//   subList.classList.toggle('open')
-// }
-
-
-
-
-
-
-
-// const caption = video.textTracks[0]
-// caption.mode = 'hidden'
-
-// CaptionsBtn.addEventListener('click', toggleCaptions)
-// function toggleCaptions() {
-//   const isHidden = caption.mode === 'hidden'
-//   caption.mode = isHidden ? 'showing' : 'hidden'
-//   VideoContainer.classList.toggle('captions', isHidden)
-// }
-
-
-for (let i = 0; i < video.textTracks.length; i++) {
-  const caption = video.textTracks[i]
-  caption.mode = "hidden";
-  console.log(caption)
+function changePlaybackSpeed() {
+  let newPlaybackRate = video.playbackRate + .25
+  if(newPlaybackRate > 2) newPlaybackRate = .25
+  video.playbackRate = newPlaybackRate
+  speedBtn.textContent = `${newPlaybackRate}x`
 }
+
+
+
+// Caption
+
+const caption = video.textTracks[0]
+caption.mode = 'hidden'
 
 CaptionsBtn.addEventListener('click', toggleCaptions)
 function toggleCaptions() {
@@ -372,3 +345,79 @@ video.addEventListener('pause', () => {
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Cap
+
+// for (let i = 0, L = tracks.length; i < L; i++) { /* tracks.length == 10 */
+//  if (tracks[i].language == 'en') {
+//  console.log(tracks[i]);
+//  }
+
+// const tracks = 
+
+// console.log(video.textTracks.length)
+
+// // Captions
+// const caption = video.textTracks.length
+// const subList = document.querySelector('.submenu-list')
+// const subInput = document.querySelector('.submenu-item-input')
+
+// CaptionsBtn.addEventListener('click', toggleCaption)
+
+// function toggleCaption() {
+//   VideoContainer.classList.toggle('caption')
+//   subList.classList.toggle('open')
+// }
+
+
+
+// const subTitlesBtn = document.querySelector('.subtitles')
+
+// if (video.textTracks[i].language == 'en') {
+
+// }
+// function toggleCaptionn() {
+//   for (let i = 0; i < video.textTracks.length; i++) {
+//     const caption = video.textTracks[i]
+//     caption.mode = "hidden";
+//     console.log(caption)
+//   }
+
+//   if (caption)
+  
+// }
+
+  // subTitlesBtn.addEventListener('click', toggleCaptionn)

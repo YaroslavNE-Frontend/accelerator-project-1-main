@@ -167,6 +167,19 @@ video {
     position: relative;
 }
 
+.video-controls-container .controls button.wide-btn {
+    width: 50px;
+
+}
+
+
+
+
+
+
+
+
+
 .submenu-list {
     @include list-reset;
     position: absolute;
