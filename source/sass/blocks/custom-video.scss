@@ -151,7 +151,13 @@ video {
     flex-grow: 1;
 }
 
+.caption-icon {
+    fill-opacity: 0.5;
+}
 
+.video-container.captions .caption-icon {
+    fill-opacity: 1;
+}
 
 
 

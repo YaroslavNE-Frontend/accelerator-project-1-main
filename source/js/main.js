@@ -7,7 +7,7 @@
 
 // import Plyr from 'plyr';
 // import { compile } from 'sass';
-// // import 'plyr/dist/plyr.css'
+// import 'plyr/dist/plyr.css'
 // const i18n = {
 //   restart: 'Повтор',
 //   rewind: 'Назад на {seektime} сек',
@@ -134,11 +134,17 @@
 //   console.log(plyr.fullscreen.enter().value)
 // });
 
+
+
+// Custom video playr
+
+document.addEventListener('DOMContentLoaded', () => {
 const PlayPauseBtn = document.querySelector('.play-pause-btn');
 const theaterBtn = document.querySelector('.theater-btn');
 const fullScreenBtn = document.querySelector('.full-screen-btn');
 const miniPlayerBtn = document.querySelector('.mini-player-btn');
 const muteBtn = document.querySelector('.mute-btn');
+const CaptionsBtn = document.querySelector('.caption-btn');
 const currentTimeElem = document.querySelector('.current-time');
 const totalTimeElem = document.querySelector('.total-time');
 const volumeSlider = document.querySelector('.volume-slider');
@@ -178,8 +184,24 @@ document.addEventListener('keydown', (e) => {
     case 'l':
       skip(5);
       break;
+      case 'c':
+        toggleCaptions()
+        break
   }
 });
+
+// Captions
+
+const caption = video.textTracks[0]
+caption.mode = 'hidden'
+
+CaptionsBtn.addEventListener('click', toggleCaptions)
+
+function toggleCaptions() {
+  const isHidden = caption.mode === 'hidden'
+  caption.mode = isHidden ? 'showing' : 'hidden'
+  VideoContainer.classList.toggle('captions', isHidden)
+}
 
 // Duration 53-40 https://www.youtube.com/watch?v=ZeNyjnneq_w&t=2088s
 
@@ -303,3 +325,10 @@ video.addEventListener('play', () => {
 video.addEventListener('pause', () => {
   VideoContainer.classList.add('paused');
 });
+  });
+
+
+
+
+
+
