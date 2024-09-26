@@ -166,15 +166,15 @@ video {
   top: -110px;
   width: 150px;
   border-radius: 10px;
-  display: none;
   opacity: 0;
-  transition: opacity 150ms ease-in-out;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
 
 
   &.open {
-    display: block;
     opacity: 1;
-    
+    pointer-events: auto;
+
   }
 }
 
@@ -191,10 +191,21 @@ video {
 .captions-text {}
 
 .options-btn {
-  transition: all 150ms ease-in-out;
 
   &.open .settings {
     fill-opacity: .5;
+  }
+
+  &.open {
+    transform: rotate(150deg);
+  }
+
+  &.open:hover .settings path {
+    fill: #fff;
+  }
+
+  &:hover .settings path {
+    fill: red;
   }
 }
 
