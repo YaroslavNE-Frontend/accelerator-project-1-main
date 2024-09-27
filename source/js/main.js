@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const muteBtn = document.querySelector(".mute-btn")
   const captionsBtn = document.querySelector(".captions-btn")
   const speedBtn = document.querySelector(".speed-btn")
-  const speedList = document.querySelectorAll(".options-speed-list") // Способ 1
+  const speedList = document.querySelector(".options-speed-list") // Способ 1
   const speedListItem = document.querySelectorAll(".options-speed-item") // Способ 1
   // const speedList = document.querySelector(".options-speed-list") // Способ 2
   // const speedListItem =  [].slice.call(document.getElementsByClassName("options-speed-item"));
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Playback Speed
-  // speedBtn.addEventListener("click", changePlaybackSpeed)
+  // speedBtn.addEventListener("click", changePlaybackSpeed) // 0.25 0.5 0.75
 
   // function changePlaybackSpeed() {
   //   let newPlaybackRate = video.playbackRate + 0.25
@@ -271,82 +271,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Способ 1
 
-  let clickEvent = () => {
-    console.log('some event content here...' +  "!")
-  }
-  speedListItem.forEach((item) => {
-    item.addEventListener('click', clickEvent)
-  });
-
-  // function openSpeedList({ target }) {
-  //   let index = [...this.children].indexOf(target);
-  //   console.log((`Индекс: ${index}`));
-  //   if () {
-
-  //   }
-  // }
-
-
-  // function openSpeedList({ target }) {
-  //   let index = [...this.children].indexOf(target);
-  //   console.log((`Индекс: ${index}`));
-  //   if (1) {
-
-  //   }
-  // }
-
-
-  // function openSpeedList(event) {
-  //   // let newPlaybackRate = video.playbackRate + 0.25
-  //   // console.log(Array.from(speedListItem).indexOf(event.target));
-  //   // if (Array.from(speedListItem).indexOf(event.target)) {
-  //   //   speedListItem.toggle('item')
-  //   // }
-  //   // if (newPlaybackRate > 2) newPlaybackRate = 0.25
-  //   // video.playbackRate = newPlaybackRate
-  //   // speedBtn.textContent = `${newPlaybackRate}x`
-  //   // // muteBtn.classList.toggle('succes')
-
-  //   speedListItem.forEach(function (element, index) {
-  //     element.addEventListener("click", function () {
-  //       console.log("you clicked slider controler " + index + "!");
-  //     });
-  //   });  }
-
-
-
-
-
-    //     let newPlaybackRate = video.playbackRate + 0.25
-    //   if (newPlaybackRate > 2) newPlaybackRate = 0.25
-    //   video.playbackRate = newPlaybackRate
-    //   speedBtn.textContent = `${newPlaybackRate}x`
-    // }
-
-
-
-
-  // function openSpeedList(event) {
-  //   let newPlaybackRate = video.playbackRate + 0.25
-  //   console.log(Array.from(speedListItem).indexOf(event.target));
-  //   if (Array.from(speedListItem).indexOf(event.target === 4)) {
-  //     if(newPlaybackRate > 2) newPlaybackRate = 0.25 
-  //     video.playbackRate = newPlaybackRate
-  //     speedBtn.textContent = `${newPlaybackRate}x`
-
-
-  //     muteBtn.classList.toggle('succes')
-
-
-
-
-  //     //     let newPlaybackRate = video.playbackRate + 0.25
-  //     //   if (newPlaybackRate > 2) newPlaybackRate = 0.25
-  //     //   video.playbackRate = newPlaybackRate
-  //     //   speedBtn.textContent = `${newPlaybackRate}x`
-  //     // }
-  //   }
-  // }
+  speedList.addEventListener('click', (e)=>{
+    console.log(e.target.dataset.speedItem);
+    if (e.target.dataset.speedItem === '1') video.playbackRate = 0.25
+    if (e.target.dataset.speedItem === '2') video.playbackRate = 0.5
+    if (e.target.dataset.speedItem === '3') video.playbackRate = 0.75
+    if (e.target.dataset.speedItem === '4') video.playbackRate = 1
+    if (e.target.dataset.speedItem === '5') video.playbackRate = 1.25
+    if (e.target.dataset.speedItem === '6') video.playbackRate = 1.5
+    if (e.target.dataset.speedItem === '7') video.playbackRate = 1.75
+    if (e.target.dataset.speedItem === '8') video.playbackRate = 2
+  })
 
   // Captions
   const captions = video.textTracks[0]
