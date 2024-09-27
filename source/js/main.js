@@ -148,10 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const muteBtn = document.querySelector(".mute-btn")
   const captionsBtn = document.querySelector(".captions-btn")
   const speedBtn = document.querySelector(".speed-btn")
-  // const speedList = document.querySelectorAll(".options-speed-list") // Способ 1
-  const speedList = document.querySelector(".options-speed-list") // Способ 2
+  const speedList = document.querySelectorAll(".options-speed-list") // Способ 1
+  const speedListItem = document.querySelectorAll(".options-speed-item") // Способ 1
+  // const speedList = document.querySelector(".options-speed-list") // Способ 2
   // const speedListItem =  [].slice.call(document.getElementsByClassName("options-speed-item"));
-  var speedListItem = document.getElementsByClassName('options-speed-item');
+  // var speedListItem = document.getElementsByClassName('options-speed-item');
   const currentTimeElem = document.querySelector(".current-time")
   const totalTimeElem = document.querySelector(".total-time")
   const previewImg = document.querySelector(".preview-img")
@@ -256,24 +257,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Playback Speed
-  speedBtn.addEventListener("click", changePlaybackSpeed)
+  // speedBtn.addEventListener("click", changePlaybackSpeed)
 
-  function changePlaybackSpeed() {
-    let newPlaybackRate = video.playbackRate + 0.25
-    if (newPlaybackRate > 2) newPlaybackRate = 0.25
-    video.playbackRate = newPlaybackRate
-    speedBtn.textContent = `${newPlaybackRate}x`
-  }
+  // function changePlaybackSpeed() {
+  //   let newPlaybackRate = video.playbackRate + 0.25
+  //   if (newPlaybackRate > 2) newPlaybackRate = 0.25
+  //   video.playbackRate = newPlaybackRate
+  //   speedBtn.textContent = `${newPlaybackRate}x`
+  // }
 
 
-  speedList.addEventListener("click", openSpeedList)
+  // speedList.addEventListener("click", openSpeedList)
 
   // Способ 1
-  // speedListItem.forEach(function (element, index){
-  //   element.addEventListener("click", function(){
-  //     console.log("you clicked slider controler " +index + "!");
-  //   });
-  // });
+
+  let clickEvent = () => {
+    console.log('some event content here...' +  "!")
+  }
+  speedListItem.forEach((item) => {
+    item.addEventListener('click', clickEvent)
+  });
 
   // function openSpeedList({ target }) {
   //   let index = [...this.children].indexOf(target);
@@ -293,12 +296,57 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
 
 
-  function openSpeedList(event) {
-    console.log(Array.from(speedListItem).indexOf(event.target));
-    if (Array.from(speedListItem).indexOf(event.target === 4)) {
-      muteBtn.classList.add('succes')
-    }
-  }
+  // function openSpeedList(event) {
+  //   // let newPlaybackRate = video.playbackRate + 0.25
+  //   // console.log(Array.from(speedListItem).indexOf(event.target));
+  //   // if (Array.from(speedListItem).indexOf(event.target)) {
+  //   //   speedListItem.toggle('item')
+  //   // }
+  //   // if (newPlaybackRate > 2) newPlaybackRate = 0.25
+  //   // video.playbackRate = newPlaybackRate
+  //   // speedBtn.textContent = `${newPlaybackRate}x`
+  //   // // muteBtn.classList.toggle('succes')
+
+  //   speedListItem.forEach(function (element, index) {
+  //     element.addEventListener("click", function () {
+  //       console.log("you clicked slider controler " + index + "!");
+  //     });
+  //   });  }
+
+
+
+
+
+    //     let newPlaybackRate = video.playbackRate + 0.25
+    //   if (newPlaybackRate > 2) newPlaybackRate = 0.25
+    //   video.playbackRate = newPlaybackRate
+    //   speedBtn.textContent = `${newPlaybackRate}x`
+    // }
+
+
+
+
+  // function openSpeedList(event) {
+  //   let newPlaybackRate = video.playbackRate + 0.25
+  //   console.log(Array.from(speedListItem).indexOf(event.target));
+  //   if (Array.from(speedListItem).indexOf(event.target === 4)) {
+  //     if(newPlaybackRate > 2) newPlaybackRate = 0.25 
+  //     video.playbackRate = newPlaybackRate
+  //     speedBtn.textContent = `${newPlaybackRate}x`
+
+
+  //     muteBtn.classList.toggle('succes')
+
+
+
+
+  //     //     let newPlaybackRate = video.playbackRate + 0.25
+  //     //   if (newPlaybackRate > 2) newPlaybackRate = 0.25
+  //     //   video.playbackRate = newPlaybackRate
+  //     //   speedBtn.textContent = `${newPlaybackRate}x`
+  //     // }
+  //   }
+  // }
 
   // Captions
   const captions = video.textTracks[0]
