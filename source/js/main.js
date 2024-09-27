@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // const speedList = document.querySelectorAll(".options-speed-list") // Способ 1
   const speedList = document.querySelector(".options-speed-list") // Способ 2
   // const speedListItem =  [].slice.call(document.getElementsByClassName("options-speed-item"));
+  var speedListItem = document.getElementsByClassName('options-speed-item');
   const currentTimeElem = document.querySelector(".current-time")
   const totalTimeElem = document.querySelector(".total-time")
   const previewImg = document.querySelector(".preview-img")
@@ -274,15 +275,30 @@ document.addEventListener('DOMContentLoaded', () => {
   //   });
   // });
 
-  function openSpeedList({ target }) {
-    let index = [...this.children].indexOf(target);
-    console.log((`Индекс: ${index}`));
-    if (1) {
+  // function openSpeedList({ target }) {
+  //   let index = [...this.children].indexOf(target);
+  //   console.log((`Индекс: ${index}`));
+  //   if () {
 
+  //   }
+  // }
+
+
+  // function openSpeedList({ target }) {
+  //   let index = [...this.children].indexOf(target);
+  //   console.log((`Индекс: ${index}`));
+  //   if (1) {
+
+  //   }
+  // }
+
+
+  function openSpeedList(event) {
+    console.log(Array.from(speedListItem).indexOf(event.target));
+    if (Array.from(speedListItem).indexOf(event.target === 4)) {
+      muteBtn.classList.add('succes')
     }
   }
-
-
 
   // Captions
   const captions = video.textTracks[0]
