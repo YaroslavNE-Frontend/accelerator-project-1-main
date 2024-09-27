@@ -271,17 +271,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Способ 1
 
-  speedList.addEventListener('click', (e)=>{
+  speedList.addEventListener('click', (e) => {
     console.log(e.target.dataset.speedItem);
-    if (e.target.dataset.speedItem === '1') video.playbackRate = 0.25
-    if (e.target.dataset.speedItem === '2') video.playbackRate = 0.5
-    if (e.target.dataset.speedItem === '3') video.playbackRate = 0.75
-    if (e.target.dataset.speedItem === '4') video.playbackRate = 1
-    if (e.target.dataset.speedItem === '5') video.playbackRate = 1.25
-    if (e.target.dataset.speedItem === '6') video.playbackRate = 1.5
-    if (e.target.dataset.speedItem === '7') video.playbackRate = 1.75
-    if (e.target.dataset.speedItem === '8') video.playbackRate = 2
+    let newPlaybackRate = video.playbackRate = 0.25
+    if (e.target.dataset.speedItem === '1') newPlaybackRate = 0.25
+    if (e.target.dataset.speedItem === '2') newPlaybackRate = 0.5
+    if (e.target.dataset.speedItem === '3') newPlaybackRate = 0.75
+    if (e.target.dataset.speedItem === '4') newPlaybackRate = 1
+    if (e.target.dataset.speedItem === '5') newPlaybackRate = 1.25
+    if (e.target.dataset.speedItem === '6') newPlaybackRate = 1.5
+    if (e.target.dataset.speedItem === '7') newPlaybackRate = 1.75
+    if (e.target.dataset.speedItem === '8') newPlaybackRate = 2
+    video.playbackRate = newPlaybackRate
+    speedBtn.textContent = `${video.playbackRate}x`
   })
+
 
   // Captions
   const captions = video.textTracks[0]
