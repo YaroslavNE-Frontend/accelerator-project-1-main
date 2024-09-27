@@ -148,6 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const muteBtn = document.querySelector(".mute-btn")
   const captionsBtn = document.querySelector(".captions-btn")
   const speedBtn = document.querySelector(".speed-btn")
+  // const speedList = document.querySelectorAll(".options-speed-list") // Способ 1
+  const speedList = document.querySelector(".options-speed-list") // Способ 2
+  // const speedListItem =  [].slice.call(document.getElementsByClassName("options-speed-item"));
   const currentTimeElem = document.querySelector(".current-time")
   const totalTimeElem = document.querySelector(".total-time")
   const previewImg = document.querySelector(".preview-img")
@@ -260,6 +263,26 @@ document.addEventListener('DOMContentLoaded', () => {
     video.playbackRate = newPlaybackRate
     speedBtn.textContent = `${newPlaybackRate}x`
   }
+
+
+  speedList.addEventListener("click", openSpeedList)
+
+  // Способ 1
+  // speedListItem.forEach(function (element, index){
+  //   element.addEventListener("click", function(){
+  //     console.log("you clicked slider controler " +index + "!");
+  //   });
+  // });
+
+  function openSpeedList({ target }) {
+    let index = [...this.children].indexOf(target);
+    console.log((`Индекс: ${index}`));
+    if (1) {
+
+    }
+  }
+
+
 
   // Captions
   const captions = video.textTracks[0]
