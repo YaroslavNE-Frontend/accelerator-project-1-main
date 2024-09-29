@@ -272,16 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Способ 1
 
   speedList.addEventListener('click', (e) => {
-    console.log(e.target.dataset.speedItem);
+    // console.log(e.target.dataset.speedItem);
     let newPlaybackRate = video.playbackRate = 0.25
-    if (e.target.dataset.speedItem === '1') newPlaybackRate = 0.25
-    if (e.target.dataset.speedItem === '2') newPlaybackRate = 0.5
-    if (e.target.dataset.speedItem === '3') newPlaybackRate = 0.75
-    if (e.target.dataset.speedItem === '4') newPlaybackRate = 1
-    if (e.target.dataset.speedItem === '5') newPlaybackRate = 1.25
-    if (e.target.dataset.speedItem === '6') newPlaybackRate = 1.5
-    if (e.target.dataset.speedItem === '7') newPlaybackRate = 1.75
-    if (e.target.dataset.speedItem === '8') newPlaybackRate = 2
+    newPlaybackRate = e.target.dataset.speedItem
     video.playbackRate = newPlaybackRate
     speedBtn.textContent = `${video.playbackRate}x`
   })
