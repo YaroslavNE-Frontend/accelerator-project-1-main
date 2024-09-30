@@ -309,21 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
     optionsBtnDown.classList.add('options-button-down--none')
   })
 
-
-
-
-
-
-
-
-
-  // speedListItem.forEach( function (item) {
-
-  // item.addEventListener('click', function () {
-  //   this.classList.toggle('options-speed-item--active')
-  // })
-
-
   // Captions
   const captions = video.textTracks[0]
   captions.mode = "hidden"
