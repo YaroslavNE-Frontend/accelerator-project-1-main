@@ -152,6 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const speedList = document.querySelector(".options-speed-list")
   const speedListItem = document.querySelectorAll(".options-speed-item")
   const itemSpeedEl = document.querySelector('.options-item.options-item--speed')
+  const itemCaptionsEl = document.querySelector('.options-item.options-item--captions')
+  const optionsBtnDown = document.querySelector('.options-button-down')
   const currentTimeElem = document.querySelector(".current-time")
   const totalTimeElem = document.querySelector(".total-time")
   const previewImg = document.querySelector(".preview-img")
@@ -290,14 +292,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.dataset.speedItem) {
       optionsContainer.classList.remove('open-settings--speed')
       optionsContainer.classList.remove('open-settings')
+      optionsBtnDown.classList.remove('options-button-down--none')
     }
 
-    videoContainer.classList.remove("open-settings")
 
+    videoContainer.classList.remove("open-settings")
+  })
+
+  optionsBtnDown.addEventListener('click', () => {
+    optionsContainer.classList.remove('open-settings--speed')
+    optionsBtnDown.classList.remove('options-button-down--none')
   })
 
   itemSpeedEl.addEventListener('click', () => {
     optionsContainer.classList.toggle('open-settings--speed')
+    optionsBtnDown.classList.add('options-button-down--none')
   })
 
 

@@ -200,6 +200,7 @@ video {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .speed-btn {}
@@ -219,6 +220,7 @@ video {
 
 
 .options-speed-item {
+  cursor: pointer;
   &--active {
     background-color: red;
   }
@@ -227,6 +229,41 @@ video {
 
 .options-container.open-settings--speed .options-speed-list {
   display: block;
+}
+
+.options-container.open-settings--speed .options-item--speed {
+  display: none;
+}
+
+.options-container.hidden-settings--captions .options-item--captions {
+  display: none;
+}
+
+.options-button-down {
+  position: relative;
+  text-align: left;
+  padding-left: 40px;
+  cursor: pointer;
+  display: none;
+
+  &--none {
+    display: block;
+  }
+
+  &--arrow::after {
+    position: absolute;
+    display: block;
+    content: "";
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 30px;
+    height: 15px;
+    background-color: red;
+
+  }
+
+ 
 }
 
 .timeline-container {
