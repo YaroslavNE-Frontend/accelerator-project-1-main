@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const speedBtn = document.querySelector(".speed-btn")
   const speedList = document.querySelector(".options-speed-list") // Способ 1
   const speedListItem = document.querySelectorAll(".options-speed-item") // Способ 1
+
   // const speedList = document.querySelector(".options-speed-list") // Способ 2
   // const speedListItem =  [].slice.call(document.getElementsByClassName("options-speed-item"));
   // var speedListItem = document.getElementsByClassName('options-speed-item');
@@ -278,6 +279,20 @@ document.addEventListener('DOMContentLoaded', () => {
     video.playbackRate = newPlaybackRate
     speedBtn.textContent = `${video.playbackRate}x`
   })
+
+  speedListItem.forEach(item => {
+    item.addEventListener('click', () => {
+      const activeSpeedListItem = document.querySelector('.options-speed-item--active');
+      activeSpeedListItem?.classList.remove('options-speed-item--active')
+      item.classList.add('options-speed-item--active')
+    });
+  });
+
+  // speedListItem.forEach( function (item) {
+
+  // item.addEventListener('click', function () {
+  //   this.classList.toggle('options-speed-item--active')
+  // })
 
 
   // Captions

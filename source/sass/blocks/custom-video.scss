@@ -214,6 +214,9 @@ video {
   // display: none;
 }
 .options-speed-item {
+  &--active {
+    background-color: red;
+  }
 }
 
 
