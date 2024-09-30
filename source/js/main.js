@@ -148,12 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const muteBtn = document.querySelector(".mute-btn")
   const captionsBtn = document.querySelector(".captions-btn")
   const speedBtn = document.querySelector(".speed-btn")
-  const speedList = document.querySelector(".options-speed-list") // Способ 1
-  const speedListItem = document.querySelectorAll(".options-speed-item") // Способ 1
-
-  // const speedList = document.querySelector(".options-speed-list") // Способ 2
-  // const speedListItem =  [].slice.call(document.getElementsByClassName("options-speed-item"));
-  // var speedListItem = document.getElementsByClassName('options-speed-item');
+  const optionsContainer = document.querySelector(".options-container")
+  const speedList = document.querySelector(".options-speed-list")
+  const speedListItem = document.querySelectorAll(".options-speed-item")
+  const itemSpeedEl = document.querySelector('.options-item.options-item--speed')
   const currentTimeElem = document.querySelector(".current-time")
   const totalTimeElem = document.querySelector(".total-time")
   const previewImg = document.querySelector(".preview-img")
@@ -203,13 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Options
 
-  OptionsBtn.addEventListener('click', toggleOptions)
-
-  function toggleOptions() {
-    videoContainer.classList.toggle("options")
-    OptionsList.classList.toggle('open')
-    OptionsBtn.classList.toggle('open')
-  }
 
   // Timeline
   timelineContainer.addEventListener("mousemove", handleTimelineUpdate)
@@ -257,7 +248,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Способ 1 --нажатие на ячейку скорости 
+
   // Playback Speed
+
   // speedBtn.addEventListener("click", changePlaybackSpeed) // 0.25 0.5 0.75
 
   // function changePlaybackSpeed() {
@@ -270,7 +264,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // speedList.addEventListener("click", openSpeedList)
 
-  // Способ 1
+
+  // Способ 2 -- Выпадающий список скорости
+
+  OptionsBtn.addEventListener('click', toggleOptions)
+
+
+  function toggleOptions() {
+    videoContainer.classList.toggle("open-settings")
+  }
 
   speedList.addEventListener('click', (e) => {
     // console.log(e.target.dataset.speedItem);
@@ -278,15 +280,36 @@ document.addEventListener('DOMContentLoaded', () => {
     newPlaybackRate = e.target.dataset.speedItem
     video.playbackRate = newPlaybackRate
     speedBtn.textContent = `${video.playbackRate}x`
+
+    speedListItem.forEach(item => {
+      item.addEventListener('click', () => {
+        const activeSpeedListItem = document.querySelector('.options-speed-item--active');
+        activeSpeedListItem?.classList.remove('options-speed-item--active')
+        item.classList.add('options-speed-item--active')
+        OptionsList.classList.remove('open')
+      });
+    });
+
+    if (e.target.dataset.speedItem) {
+      optionsContainer.classList.remove('open-settings--speed')
+      optionsContainer.classList.remove('open-settings')
+    }
+
+    videoContainer.classList.remove("open-settings")
+
   })
 
-  speedListItem.forEach(item => {
-    item.addEventListener('click', () => {
-      const activeSpeedListItem = document.querySelector('.options-speed-item--active');
-      activeSpeedListItem?.classList.remove('options-speed-item--active')
-      item.classList.add('options-speed-item--active')
-    });
-  });
+  itemSpeedEl.addEventListener('click', () => {
+    optionsContainer.classList.toggle('open-settings--speed')
+  })
+
+
+
+
+
+
+
+
 
   // speedListItem.forEach( function (item) {
 

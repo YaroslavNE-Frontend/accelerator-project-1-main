@@ -102,6 +102,15 @@ video {
   display: none;
 }
 
+.video-container.open-settings .options-list {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// .video-container.open-settings-speed .options-speed-list {
+//   display: block;
+// }
+
 .volume-high-icon,
 .volume-low-icon,
 .volume-muted-icon {
@@ -171,11 +180,11 @@ video {
   pointer-events: none;
 
 
-  &.open {
-    opacity: 1;
-    pointer-events: auto;
+  // &.open {
+  //   opacity: 1;
+  //   pointer-events: auto;
 
-  }
+  // }
 }
 
 .options-item {
@@ -211,14 +220,25 @@ video {
 
 
 .options-speed-list {
-  // display: none;
+  display: none;
+
+  // &--active {
+  //   display: block;
+  // }
 }
+
+
+
 .options-speed-item {
   &--active {
     background-color: red;
   }
 }
 
+
+.options-container.open-settings--speed .options-speed-list {
+  display: block;
+}
 
 .timeline-container {
   height: 7px;
