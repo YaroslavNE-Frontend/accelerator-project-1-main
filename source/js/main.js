@@ -261,17 +261,14 @@ document.addEventListener('DOMContentLoaded', () => {
   //   speedBtn.textContent = `${newPlaybackRate}x`
   // }
 
-
-  // speedList.addEventListener("click", openSpeedList)
-
-
   // Способ 2 -- Выпадающий список скорости
 
   OptionsBtn.addEventListener('click', toggleOptions)
 
 
   function toggleOptions() {
-    videoContainer.classList.toggle("open-settings")
+    videoContainer.classList.toggle('open-settings')
+    optionsContainer?.classList.remove('open-settings--speed')
   }
 
   speedList.addEventListener('click', (e) => {

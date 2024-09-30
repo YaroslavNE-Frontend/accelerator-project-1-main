@@ -107,9 +107,18 @@ video {
   pointer-events: auto;
 }
 
-// .video-container.open-settings-speed .options-speed-list {
-//   display: block;
-// }
+.video-container.open-settings .options-btn {
+  transition: transform .5s ease-in-out;
+  transform: rotate(90deg);
+
+  & .settings {
+    fill-opacity: .5;
+  }
+
+  &:hover .settings path {
+    fill: #fff;
+  }
+}
 
 .volume-high-icon,
 .volume-low-icon,
@@ -172,7 +181,7 @@ video {
   background-color: rgb(126, 124, 124);
   position: absolute;
   left: -120px;
-  top: -110px;
+  bottom: 50px;
   width: 150px;
   border-radius: 10px;
   opacity: 0;
@@ -198,26 +207,6 @@ video {
 .speed-text {}
 
 .captions-text {}
-
-.options-btn {
-
-  &.open .settings {
-    fill-opacity: .5;
-  }
-
-  &.open {
-    transform: rotate(150deg);
-  }
-
-  &.open:hover .settings path {
-    fill: #fff;
-  }
-
-  &:hover .settings path {
-    fill: red;
-  }
-}
-
 
 .options-speed-list {
   display: none;
