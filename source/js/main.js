@@ -339,14 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //   videoContainer.classList.toggle("captions", isHidden)
   // }
 
-
-
-
-  const captions = video.textTracks
-  captions.mode = "hidden"
-  // captions.mode === "showing"
-
-
   let track = video.addTextTrack("captions", "Captions", "en-US");
   track.mode = "showing";
   console.log(track.language);
@@ -366,17 +358,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     if (e.target.dataset.caption === 'ru') {
-      // optionsContainer?.classList.remove('open-settings--speed')
       isHiddenCaptions()
       video.textTracks[1].mode = "showing"
-      // activeCaptionDefault?.classList.remove('captions')
     }
 
     if (e.target.dataset.caption === 'en') {
       isHiddenCaptions()
       video.textTracks[0].mode = "showing"
-      // const activeCaptionDefault = document.querySelector('.options-captions-item--active');
-      // activeCaptionDefault?.classList.remove('captions')
     }
 
     if (e.target.dataset.caption === 'off') {
