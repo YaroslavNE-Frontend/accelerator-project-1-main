@@ -238,6 +238,10 @@ video {
   display: block;
 }
 
+// .options-container.open-settings--speed .options-speed-list {
+//   display: block;
+// }
+
 .options-container.open-settings--captions .options-captions-list {
   display: block;
 }
@@ -247,6 +251,14 @@ video {
 }
 
 .options-container.open-settings--speed .options-item--captions {
+  display: none;
+}
+
+.options-container.open-settings--captions .options-item--captions {
+  display: none;
+}
+
+.options-container.open-settings--captions .options-item--speed {
   display: none;
 }
 

@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const speedList = document.querySelector(".options-speed-list")
   const speedListItem = document.querySelectorAll(".options-speed-item")
   const captionsList = document.querySelector(".options-captions-list")
-  const captionsItem = document.querySelectorAll(".options-captions-item")
+  const captionsListItem = document.querySelectorAll(".options-captions-item")
   const itemSpeedEl = document.querySelector('.options-item.options-item--speed')
   const itemCaptionsEl = document.querySelector('.options-item.options-item--captions')
   const optionsBtnDown = document.querySelector('.options-button-down')
@@ -273,7 +273,26 @@ document.addEventListener('DOMContentLoaded', () => {
   function toggleOptions() {
     videoContainer.classList.toggle('open-settings')
     optionsContainer?.classList.remove('open-settings--speed')
+    optionsContainer?.classList.remove('open-settings--captions')
   }
+
+  speedListItem.forEach(item => {
+    item.addEventListener('click', () => {
+      const activeSpeedListItem = document.querySelector('.options-speed-item--active');
+      activeSpeedListItem?.classList.remove('options-speed-item--active')
+      item.classList.add('options-speed-item--active')
+      OptionsList.classList.remove('open')
+    });
+  });
+
+  captionsListItem.forEach(item => {
+    item.addEventListener('click', () => {
+      const activeCaptionListItem = document.querySelector('.options-captions-item--active');
+      activeCaptionListItem?.classList.remove('options-captions-item--active')
+      item.classList.add('options-captions-item--active')
+      OptionsList.classList.remove('open')
+    });
+  });
 
   speedList.addEventListener('click', (e) => {
     // console.log(e.target.dataset.speedItem);
@@ -281,15 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
     newPlaybackRate = e.target.dataset.speedItem
     video.playbackRate = newPlaybackRate
     speedBtn.textContent = `${video.playbackRate}x`
-
-    speedListItem.forEach(item => {
-      item.addEventListener('click', () => {
-        const activeSpeedListItem = document.querySelector('.options-speed-item--active');
-        activeSpeedListItem?.classList.remove('options-speed-item--active')
-        item.classList.add('options-speed-item--active')
-        OptionsList.classList.remove('open')
-      });
-    });
 
     if (e.target.dataset.speedItem) {
       optionsContainer.classList.remove('open-settings--speed')
@@ -303,11 +313,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   optionsBtnDown.addEventListener('click', () => {
     optionsContainer.classList.remove('open-settings--speed')
+    optionsContainer.classList.remove('open-settings--captions')
     optionsBtnDown.classList.remove('options-button-down--none')
   })
 
   itemSpeedEl.addEventListener('click', () => {
     optionsContainer.classList.toggle('open-settings--speed')
+    optionsBtnDown.classList.add('options-button-down--none')
+  })
+
+  itemCaptionsEl.addEventListener('click', () => {
+    optionsContainer.classList.toggle('open-settings--captions')
     optionsBtnDown.classList.add('options-button-down--none')
   })
 
@@ -324,10 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
 
 
-  itemCaptionsEl.addEventListener('click', () => {
-    optionsContainer.classList.toggle('open-settings--captions')
-    optionsBtnDown.classList.add('options-button-down--none')
-  })
+
 
   const captions = video.textTracks
   captions.mode = "hidden"
@@ -335,30 +348,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   let track = video.addTextTrack("captions", "Captions", "en-US");
-track.mode = "showing";
-console.log(track.language);
+  track.mode = "showing";
+  console.log(track.language);
 
 
 
   captionsList.addEventListener('click', (e) => {
     console.log(e.target.dataset.caption)
-    const isHiddenru = video.textTracks[1].mode === "hidden"
-    const isHiddenen = video.textTracks[0].mode === "hidden"
 
-    for (let i = 0; i < video.textTracks.length; i++) {
-      video.textTracks[i].mode = "hidden";
-    }
-    if (e.target.dataset.caption === 'ru') {
-      video.textTracks[1].mode = isHiddenru ? "showing" : "hidden"
-      videoContainer.classList.remove('captions-en')
-      videoContainer.classList.toggle("captions-ru", isHiddenru) 
-     
-    } 
-     if (e.target.dataset.caption === 'en') {
-        video.textTracks[0].mode = isHiddenen ? "showing" : "hidden"
-        videoContainer.classList.remove('captions-ru')
-        videoContainer.classList.toggle("captions-en", isHiddenen)
+
+    function isHiddenCaptions() {
+      for (let i = 0; i < video.textTracks.length; i++) {
+        video.textTracks[i].mode = "hidden";
       }
+    }
+
+
+
+    if (e.target.dataset.caption === 'ru') {
+      // optionsContainer?.classList.remove('open-settings--speed')
+      isHiddenCaptions()
+      video.textTracks[1].mode = "showing"
+      // activeCaptionDefault?.classList.remove('captions')
+    }
+
+    if (e.target.dataset.caption === 'en') {
+      isHiddenCaptions()
+      video.textTracks[0].mode = "showing"
+      // const activeCaptionDefault = document.querySelector('.options-captions-item--active');
+      // activeCaptionDefault?.classList.remove('captions')
+    }
+
+    if (e.target.dataset.caption === 'off') {
+      isHiddenCaptions()
+    }
+
+    if (e.target.dataset.caption) {
+      optionsContainer.classList.remove('open-settings--captions')
+      videoContainer.classList.remove('open-settings')
+      optionsBtnDown.classList.remove('options-button-down--none')
+    }
   })
 
 
