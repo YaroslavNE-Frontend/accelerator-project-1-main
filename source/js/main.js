@@ -151,6 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const optionsContainer = document.querySelector(".options-container")
   const speedList = document.querySelector(".options-speed-list")
   const speedListItem = document.querySelectorAll(".options-speed-item")
+  const captionsList = document.querySelector(".options-captions-list")
+  const captionsItem = document.querySelectorAll(".options-captions-item")
   const itemSpeedEl = document.querySelector('.options-item.options-item--speed')
   const itemCaptionsEl = document.querySelector('.options-item.options-item--captions')
   const optionsBtnDown = document.querySelector('.options-button-down')
@@ -310,16 +312,56 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Captions
-  const captions = video.textTracks[0]
+  // const captions = video.textTracks[0]
+  // captions.mode = "hidden"
+
+  // captionsBtn.addEventListener("click", toggleCaptions)
+
+  // function toggleCaptions() {
+  //   const isHidden = captions.mode === "hidden"
+  //   captions.mode = isHidden ? "showing" : "hidden"
+  //   videoContainer.classList.toggle("captions", isHidden)
+  // }
+
+  const captions = video.textTracks
   captions.mode = "hidden"
+  // captions.mode === "showing"
 
-  captionsBtn.addEventListener("click", toggleCaptions)
 
-  function toggleCaptions() {
-    const isHidden = captions.mode === "hidden"
-    captions.mode = isHidden ? "showing" : "hidden"
-    videoContainer.classList.toggle("captions", isHidden)
-  }
+  let track = video.addTextTrack("captions", "Captions", "en-US");
+track.mode = "showing";
+console.log(track.language);
+
+
+
+  captionsList.addEventListener('click', (e) => {
+    console.log(e.target.dataset.caption)
+    const isHiddenru = video.textTracks[1].mode === "hidden"
+    const isHiddenen = video.textTracks[0].mode === "hidden"
+    // const isShowing = captions.mode === "showing"
+    for (let i = 0; i < video.textTracks.length; i++) {
+      video.textTracks[i].mode = "hidden";
+    }
+    if (e.target.dataset.caption === 'ru') {
+      video.textTracks[1].mode = isHiddenru ? "showing" : "hidden"
+      videoContainer.classList.toggle("captions-ru", isHiddenru) 
+     
+    } 
+     if (e.target.dataset.caption === 'en') {
+        video.textTracks[0].mode = isHiddenen ? "showing" : "hidden"
+        videoContainer.classList.toggle("captions-en", isHiddenen)
+      }
+    //     if(isHidden) {
+    //       activeCaptions = e.target.dataset.speedItem
+
+    //       // isShowing = activeCaptions
+    //       // speedBtn.textContent = `${video.playbackRate}x`
+    //     }
+  })
+
+
+
+
 
   // Duration
   video.addEventListener("loadeddata", () => {
