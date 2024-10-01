@@ -148,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const muteBtn = document.querySelector(".mute-btn")
   const captionsBtn = document.querySelector(".captions-btn")
   const speedBtn = document.querySelector(".speed-btn")
+  const rewindBtn = document.querySelector(".rewind-btn")
+  const fastForwardBtn = document.querySelector(".fast-forward-btn")
   const optionsContainer = document.querySelector(".options-container")
   const speedList = document.querySelector(".options-speed-list")
   const speedListItem = document.querySelectorAll(".options-speed-item")
@@ -202,6 +204,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+  // Skip Battons
+
+  rewindBtn.addEventListener('click', toggleRewind)
+  fastForwardBtn.addEventListener('click', toggleFastForward)
+
+  function toggleRewind() {
+    skip(-5)
+  }
+
+  function toggleFastForward() {
+    skip(5)
+  }
 
   // Options
 
