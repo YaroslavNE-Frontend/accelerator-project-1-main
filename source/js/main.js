@@ -323,6 +323,12 @@ document.addEventListener('DOMContentLoaded', () => {
   //   videoContainer.classList.toggle("captions", isHidden)
   // }
 
+
+  itemCaptionsEl.addEventListener('click', () => {
+    optionsContainer.classList.toggle('open-settings--captions')
+    optionsBtnDown.classList.add('options-button-down--none')
+  })
+
   const captions = video.textTracks
   captions.mode = "hidden"
   // captions.mode === "showing"
@@ -338,29 +344,22 @@ console.log(track.language);
     console.log(e.target.dataset.caption)
     const isHiddenru = video.textTracks[1].mode === "hidden"
     const isHiddenen = video.textTracks[0].mode === "hidden"
-    // const isShowing = captions.mode === "showing"
+
     for (let i = 0; i < video.textTracks.length; i++) {
       video.textTracks[i].mode = "hidden";
     }
     if (e.target.dataset.caption === 'ru') {
       video.textTracks[1].mode = isHiddenru ? "showing" : "hidden"
+      videoContainer.classList.remove('captions-en')
       videoContainer.classList.toggle("captions-ru", isHiddenru) 
      
     } 
      if (e.target.dataset.caption === 'en') {
         video.textTracks[0].mode = isHiddenen ? "showing" : "hidden"
+        videoContainer.classList.remove('captions-ru')
         videoContainer.classList.toggle("captions-en", isHiddenen)
       }
-    //     if(isHidden) {
-    //       activeCaptions = e.target.dataset.speedItem
-
-    //       // isShowing = activeCaptions
-    //       // speedBtn.textContent = `${video.playbackRate}x`
-    //     }
   })
-
-
-
 
 
   // Duration

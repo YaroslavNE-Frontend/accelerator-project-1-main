@@ -227,7 +227,18 @@ video {
 }
 
 
+.options-captions-list {
+  display: none;
+}
+.options-captions-item {
+}
+
+
 .options-container.open-settings--speed .options-speed-list {
+  display: block;
+}
+
+.options-container.open-settings--captions .options-captions-list {
   display: block;
 }
 
