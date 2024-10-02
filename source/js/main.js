@@ -150,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const speedBtn = document.querySelector(".speed-btn")
   const rewindBtn = document.querySelector(".rewind-btn")
   const fastForwardBtn = document.querySelector(".fast-forward-btn")
-  const downloadBtn = document.querySelector(".download-btn")
   const optionsContainer = document.querySelector(".options-container")
   const speedList = document.querySelector(".options-speed-list")
   const speedListItem = document.querySelectorAll(".options-speed-item")
@@ -209,39 +208,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Text
 
-// const a = document.querySelector('.test');
-// const data = 'hello good';
+  // const a = document.querySelector('.test');
+  // const data = 'hello good';
 
-// const blob = new Blob([data], {type: 'text/plain'})
+  // const blob = new Blob([data], {type: 'text/plain'})
 
-// const url = URL.createObjectURL(blob)
-// console.log(url)
+  // const url = URL.createObjectURL(blob)
+  // console.log(url)
 
-// a.href = url 
-// a.download = 'blob-to-download.txt'
-
-
-// VIDEO
-
-const a = document.querySelector('.test');
-
-let xhr = new XMLHttpRequest();
-xhr.open('GET', './video/video.webm');
-xhr.responseType = 'arraybuffer';
-xhr.onload = (e) => {
-  let blob = new Blob([xhr.response], {type: 'video/webm'});
-  let url = URL.createObjectURL(blob);
-  console.log(url)
-  video.src = url;
-  a.href = url 
-  a.download = 'Myvideo'
-}
-
-xhr.send()
+  // a.href = url 
+  // a.download = 'blob-to-download.txt'
 
 
+  // VIDEO
 
+  const a = document.querySelector('.download-link');
 
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', './video/video.webm');
+  xhr.responseType = 'arraybuffer';
+  xhr.onload = (e) => {
+    let blob = new Blob([xhr.response], { type: 'video/webm' });
+    let url = URL.createObjectURL(blob);
+    console.log(url)
+    video.src = url;
+    a.href = url 
+    a.download = 'Myvideo'
+  }
+
+  xhr.send()
 
   // Skip Battons
 
@@ -379,6 +374,8 @@ xhr.send()
     optionsContainer.classList.toggle('open-settings--captions')
     optionsBtnDown.classList.add('options-button-down--none')
   })
+
+
 
   // Captions
   // const captions = video.textTracks[0]
