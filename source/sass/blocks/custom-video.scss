@@ -71,12 +71,13 @@ video {
   font-size: 1.1rem;
   cursor: pointer;
   opacity: .85;
-  transition: opacity 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
 
   &:hover path,
   &:hover polygon,
   &:hover rect {
     fill: red;
+    opacity: 1;
   }
 }
 
@@ -107,6 +108,53 @@ video {
 .video-container:not(.full-screen) .close {
   display: none;
 }
+
+.paused-btn {
+  display: none;
+}
+
+.video-container.paused .paused-btn {
+  display: block;
+  padding: 0;
+  position: absolute;
+  content: '';
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, -50%);
+  background: url("/__spritemap#sprite-play_btn-view");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: url("/__spritemap#sprite-play_btn-hover-view");
+  }
+
+  &:focus {
+    background: url("/__spritemap#sprite-play_btn-focus-view");
+  }
+
+  &:active {
+    background: url("/__spritemap#sprite-play_btn-active-view");
+  }
+
+  &:disabled,
+  &disabled {
+    background: url("/__spritemap#sprite-play_btn-disabled-view");
+    cursor: no-drop;
+  }
+}
+
+
+
+// .video-container.paused:hover::after {
+//   background: url("/__spritemap#sprite-play_btn-hover-view");
+// }
 
 .video-container.open-settings .options-list {
   opacity: 1;
