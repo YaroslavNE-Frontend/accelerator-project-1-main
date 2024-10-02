@@ -72,10 +72,16 @@ video {
   cursor: pointer;
   opacity: .85;
   transition: opacity 150ms ease-in-out;
+
+  &:hover path,
+  &:hover polygon,
+  &:hover rect {
+    fill: red;
+  }
 }
 
 .video-controls-container .controls button:hover {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .video-container.paused .pause-icon {
@@ -110,14 +116,6 @@ video {
 .video-container.open-settings .options-btn {
   transition: transform .5s ease-in-out;
   transform: rotate(90deg);
-
-  & .settings {
-    fill-opacity: .5;
-  }
-
-  &:hover .settings path {
-    fill: #fff;
-  }
 }
 
 .volume-high-icon,
@@ -148,6 +146,13 @@ video {
   transform-origin: left;
   transform: scaleX(0);
   transition: width 150ms ease-in-out, transform 150ms ease-in-out;
+  accent-color: red;
+  height: 5px;
+
+  // &::-webkit-slider-thumb, 
+  // &::-webkit-slider-thumb {
+  // }
+
 }
 
 .volume-container:hover .volume-slider,
@@ -187,13 +192,6 @@ video {
   opacity: 0;
   transition: opacity .5s ease-in-out;
   pointer-events: none;
-
-
-  // &.open {
-  //   opacity: 1;
-  //   pointer-events: auto;
-
-  // }
 }
 
 .options-item {
@@ -211,16 +209,14 @@ video {
 
 .options-speed-list {
   display: none;
-
-  // &--active {
-  //   display: block;
-  // }
 }
 
 
 
-.options-speed-item {
+.options-speed-item,
+.options-captions-item {
   cursor: pointer;
+
   &--active {
     background-color: red;
   }
@@ -230,17 +226,13 @@ video {
 .options-captions-list {
   display: none;
 }
-.options-captions-item {
-}
+
+.options-captions-item {}
 
 
 .options-container.open-settings--speed .options-speed-list {
   display: block;
 }
-
-// .options-container.open-settings--speed .options-speed-list {
-//   display: block;
-// }
 
 .options-container.open-settings--captions .options-captions-list {
   display: block;
@@ -286,7 +278,7 @@ video {
 
   }
 
- 
+
 }
 
 .timeline-container {
