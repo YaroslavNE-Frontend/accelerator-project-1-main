@@ -150,6 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const speedBtn = document.querySelector(".speed-btn")
   const rewindBtn = document.querySelector(".rewind-btn")
   const fastForwardBtn = document.querySelector(".fast-forward-btn")
+  const restartBtn = document.querySelector(".restart-btn")
+  const downloadLink = document.querySelector('.download-link');
   const optionsContainer = document.querySelector(".options-container")
   const speedList = document.querySelector(".options-speed-list")
   const speedListItem = document.querySelectorAll(".options-speed-item")
@@ -198,15 +200,29 @@ document.addEventListener('DOMContentLoaded', () => {
       case "l":
         skip(5)
         break
+      case "v":
+        firstTime()
+        break
       case "c":
         toggleCaptions()
         break
     }
   })
 
+  firstTime()
+
+
+  // Restart Button
+
+  rewindBtn.addEventListener('click', firstTime)
+
+  function  firstTime() {
+    video.currentTime = 0
+  }
+
   // Download Batton
 
-  //Text
+  //// Text
 
   // const a = document.querySelector('.test');
   // const data = 'hello good';
@@ -220,9 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // a.download = 'blob-to-download.txt'
 
 
-  // VIDEO
-
-  const a = document.querySelector('.download-link');
+  //// VIDEO DOWNLOAD
 
   let xhr = new XMLHttpRequest();
   xhr.open('GET', './video/video.webm');
@@ -232,8 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let url = URL.createObjectURL(blob);
     console.log(url)
     video.src = url;
-    a.href = url 
-    a.download = 'Myvideo'
+    downloadLink.href = url 
+    downloadLink.download = 'Myvideo'
   }
 
   xhr.send()
