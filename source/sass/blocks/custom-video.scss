@@ -109,11 +109,11 @@ video {
   display: none;
 }
 
-.paused-btn {
+.play-pause-btn--overlaid {
   display: none;
 }
 
-.video-container.paused .paused-btn {
+.video-container.paused .play-pause-btn--overlaid {
   display: block;
   padding: 0;
   position: absolute;

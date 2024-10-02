@@ -139,7 +139,7 @@
 // Custom video playr
 
 document.addEventListener('DOMContentLoaded', () => {
-  const playPauseBtn = document.querySelector(".play-pause-btn")
+  const playPauseBtn = document.querySelectorAll(".play-pause-btn")
   const theaterBtn = document.querySelector(".theater-btn")
   const fullScreenBtn = document.querySelector(".full-screen-btn")
   const miniPlayerBtn = document.querySelector(".mini-player-btn")
@@ -538,7 +538,9 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Play/Pause
-  playPauseBtn.addEventListener("click", togglePlay)
+  playPauseBtn.forEach(e => {
+    e.addEventListener("click", togglePlay)
+  })
   video.addEventListener("click", togglePlay)
 
   function togglePlay() {
