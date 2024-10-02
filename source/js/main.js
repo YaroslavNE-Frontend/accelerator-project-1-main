@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Restart Button
 
-  rewindBtn.addEventListener('click', firstTime)
+  restartBtn.addEventListener('click', firstTime)
 
   function  firstTime() {
     video.currentTime = 0
