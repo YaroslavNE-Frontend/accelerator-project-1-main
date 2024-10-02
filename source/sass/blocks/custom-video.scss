@@ -150,12 +150,6 @@ video {
   }
 }
 
-
-
-// .video-container.paused:hover::after {
-//   background: url("/__spritemap#sprite-play_btn-hover-view");
-// }
-
 .video-container.open-settings .options-list {
   opacity: 1;
   pointer-events: auto;
@@ -220,9 +214,9 @@ video {
   border-bottom: 3px solid red;
 }
 
-.video-controls-container .controls button.wide-btn {
-  // width: 50px;
-}
+// .video-controls-container .controls button.wide-btn {
+//   // width: 50px;
+// }
 
 
 .options-container {
@@ -231,7 +225,7 @@ video {
 
 .options-list {
   padding: 20px 20px;
-  background-color: rgb(126, 124, 124);
+  background-color: rgb(68, 68, 68, 0.5);
   position: absolute;
   left: -120px;
   bottom: 50px;
@@ -248,12 +242,6 @@ video {
   align-items: center;
   cursor: pointer;
 }
-
-.speed-btn {}
-
-.speed-text {}
-
-.captions-text {}
 
 .options-speed-list {
   display: none;
@@ -275,7 +263,7 @@ video {
   display: none;
 }
 
-.options-captions-item {}
+// .options-captions-item {}
 
 
 .options-container.open-settings--speed .options-speed-list {
@@ -300,6 +288,24 @@ video {
 
 .options-container.open-settings--captions .options-item--speed {
   display: none;
+}
+
+
+
+.options-item--speed {
+
+  &:hover .speed-text,
+  &:hover .speed-btn {
+    color: red;
+  }
+}
+
+.options-item--captions {
+
+  &:hover .captions-text,
+  &:hover .captions-btn {
+    color: red;
+  }
 }
 
 .options-button-down {
