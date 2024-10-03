@@ -217,17 +217,14 @@
           </button>
           <div class="volume-container">
             <button class="mute-btn">
-              <svg class="volume-high-icon" viewBox="0 0 24 24">
-                <path fill="currentColor"
-                  d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+              <svg class="custom-player-icon volume-high-icon">
+                <use href="/__spritemap#sprite-custom-player-volumehigh"></use>
               </svg>
-              <svg class="volume-low-icon" viewBox="0 0 24 24">
-                <path fill="currentColor"
-                  d="M5,9V15H9L14,20V4L9,9M18.5,12C18.5,10.23 17.5,8.71 16,7.97V16C17.5,15.29 18.5,13.76 18.5,12Z" />
+              <svg class="custom-player-icon volume-low-icon">
+                <use href="/__spritemap#sprite-custom-player-volumelow"></use>
               </svg>
-              <svg class="volume-muted-icon" viewBox="0 0 24 24">
-                <path fill="currentColor"
-                  d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z" />
+              <svg class="custom-player-icon volume-muted-icon">
+                <use href="/__spritemap#sprite-custom-player-volumemuted"></use>
               </svg>
             </button>
             <input class="volume-slider" type="range" min="0" max="1" step="any" value="1">
@@ -238,28 +235,24 @@
             <div class="total-time"></div>
           </div>
           <button class="restart-btn">
-            <svg width="30px" height="30px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9.7,1.2 L10.4,7.6 L12.5,5.5 C14.4,7.4 14.4,10.6 12.5,12.5 C11.6,13.5 10.3,14 9,14 C7.7,14 6.4,13.5 5.5,12.5 C3.6,10.6 3.6,7.4 5.5,5.5 C6.1,4.9 6.9,4.4 7.8,4.2 L7.2,2.3 C6,2.6 4.9,3.2 4,4.1 C1.3,6.8 1.3,11.2 4,14 C5.3,15.3 7.1,16 8.9,16 C10.8,16 12.5,15.3 13.8,14 C16.5,11.3 16.5,6.9 13.8,4.1 L16,1.9 L9.7,1.2 L9.7,1.2 Z" fill="currentColor"></path>
+            <svg class="custom-player-icon restart-icon">
+              <use href="/__spritemap#sprite-custom-player-restart"></use>
           </svg>
           </button>
           <button class="rewind-btn">
-            <svg width="30px" height="30px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="10.125 1 0 9 10.125 17 10.125 10.8285714 18 17 18 1 10.125 7.17142857" fill="currentColor"></polygon>
+            <svg class="custom-player-icon rewind-icon">
+              <use href="/__spritemap#sprite-custom-player-rewind"></use>
             </svg>
           </button>
           <button class="fast-forward-btn">
-            <svg width="30px" height="30px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="7.875 7.17142857 0 1 0 17 7.875 10.8285714 7.875 17 18 9 7.875 1" fill="currentColor"></polygon>
+            <svg class="custom-player-icon fast-forward-icon">
+              <use href="/__spritemap#sprite-custom-player-fast-forward"></use>
             </svg>
           </button>
           <a class="download-link" style="display: inline-block; width: 30px; height: 30px; color: #ffffff;">
             <button class="download-btn">
-              <svg width="30px" height="30px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(2 1)">
-                  <path fill="currentColor"
-                    d="M7,12 C7.3,12 7.5,11.9 7.7,11.7 L13.4,6 L12,4.6 L8,8.6 L8,0 L6,0 L6,8.6 L2,4.6 L0.6,6 L6.3,11.7 C6.5,11.9 6.7,12 7,12 Z" />
-                  <rect width="14" height="2" y="14" fill="currentColor"/>
-                </g>
+              <svg class="custom-player-icon download-icon">
+                <use href="/__spritemap#sprite-custom-player-download"></use>
               </svg>
             </button>
           </a>
@@ -291,9 +284,8 @@
               <div class="options-item options-item--captions">
                 <span class="captions-text">Субтитры</span>
                 <button class="captions-btn">
-                  <svg viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                      d="M18,11H16.5V10.5H14.5V13.5H16.5V13H18V14A1,1 0 0,1 17,15H14A1,1 0 0,1 13,14V10A1,1 0 0,1 14,9H17A1,1 0 0,1 18,10M11,11H9.5V10.5H7.5V13.5H9.5V13H11V14A1,1 0 0,1 10,15H7A1,1 0 0,1 6,14V10A1,1 0 0,1 7,9H10A1,1 0 0,1 11,10M19,4H5C3.89,4 3,4.89 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6C21,4.89 20.1,4 19,4Z" />
+                  <svg class="custom-player-icon captions-icon">
+                    <use href="/__spritemap#sprite-custom-player-captions"></use>
                   </svg>
                 </button>
               </div>
@@ -305,42 +297,34 @@
             </div>
           </div>
           <button class="options-btn">
-            <svg class="settings" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor"
-                d="M16.135,7.784 C14.832,7.458 14.214,5.966 14.905,4.815 C15.227,4.279 15.13,3.817 14.811,3.499 L14.501,3.189 C14.183,2.871 13.721,2.774 13.185,3.095 C12.033,3.786 10.541,3.168 10.216,1.865 C10.065,1.258 9.669,1 9.219,1 L8.781,1 C8.331,1 7.936,1.258 7.784,1.865 C7.458,3.168 5.966,3.786 4.815,3.095 C4.279,2.773 3.816,2.87 3.498,3.188 L3.188,3.498 C2.87,3.816 2.773,4.279 3.095,4.815 C3.786,5.967 3.168,7.459 1.865,7.784 C1.26,7.935 1,8.33 1,8.781 L1,9.219 C1,9.669 1.258,10.064 1.865,10.216 C3.168,10.542 3.786,12.034 3.095,13.185 C2.773,13.721 2.87,14.183 3.189,14.501 L3.499,14.811 C3.818,15.13 4.281,15.226 4.815,14.905 C5.967,14.214 7.459,14.832 7.784,16.135 C7.935,16.742 8.331,17 8.781,17 L9.219,17 C9.669,17 10.064,16.742 10.216,16.135 C10.542,14.832 12.034,14.214 13.185,14.905 C13.72,15.226 14.182,15.13 14.501,14.811 L14.811,14.501 C15.129,14.183 15.226,13.72 14.905,13.185 C14.214,12.033 14.832,10.541 16.135,10.216 C16.742,10.065 17,9.669 17,9.219 L17,8.781 C17,8.33 16.74,7.935 16.135,7.784 L16.135,7.784 Z M9,12 C7.343,12 6,10.657 6,9 C6,7.343 7.343,6 9,6 C10.657,6 12,7.343 12,9 C12,10.657 10.657,12 9,12 L9,12 Z">
-              </path>
+            <svg class="custom-player-icon settings-icon">
+              <use href="/__spritemap#sprite-custom-player-settings"></use>
             </svg>
           </button>
           <button class="mini-player-btn">
-            <svg viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v6h-9z" />
+            <svg class="custom-player-icon mini-player-icon">
+              <use href="/__spritemap#sprite-custom-player-mini-player"></use>
             </svg>
           </button>
           <button class="theater-btn">
-            <svg class="tall" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z" />
+            <svg class="custom-player-icon tall">
+              <use href="/__spritemap#sprite-custom-player-tall"></use>
             </svg>
-            <svg class="wide" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z" />
+            <svg class="custom-player-icon wide">
+              <use href="/__spritemap#sprite-custom-player-wide"></use>
             </svg>
           </button>
           <button class="full-screen-btn">
-            <svg class="open" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+            <svg class="custom-player-icon open">
+              <use href="/__spritemap#sprite-custom-player-full-screen-open"></use> 
             </svg>
-            <svg class="close" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z" />
+            <svg class="custom-player-icon close">
+              <use href="/__spritemap#sprite-custom-player-full-screen-close"></use> 
             </svg>
           </button>
         </div>
       </div>
       <video src="" poster="img/preview.webp">
-        <!-- <source src="video/video.webm" type="video/webm"> -->
         <track kind="captions" srclang="en" src="video/captions/englishsub.vtt">
         <track kind="captions" srclang="ru" src="video/captions/russub.vtt">
       </video>

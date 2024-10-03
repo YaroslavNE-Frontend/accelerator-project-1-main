@@ -24,6 +24,7 @@
 
 video {
   width: 100%;
+  min-height: 563px;
 }
 
 .video-controls-container {
@@ -86,12 +87,12 @@ video {
   opacity: .85;
   transition: all 150ms ease-in-out;
 
-  &:hover path,
-  &:hover polygon,
-  &:hover rect {
-    fill: red;
-    opacity: 1;
-  }
+  // &:hover path,
+  // &:hover polygon,
+  // &:hover rect {
+  //   fill: red;
+  //   opacity: 1;
+  // }
 }
 
 .video-controls-container .controls button:hover {
@@ -278,6 +279,7 @@ video {
 
   &--active {
     background-color: red;
+    pointer-events: none;
   }
 }
 
