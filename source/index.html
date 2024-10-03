@@ -193,19 +193,9 @@
             <img class="about__image" src="img/about-img-mobile.webp" width="320" height="280"
               alt="Тренажёрный зал SUPERGYM" type="image/webp">
           </picture>
-
-          <!-- <video id="player" playsinline controls data-poster="img/preview.webp">
-            <source src="/path/to/video.mp4" type="video/mp4" />
-            <source src="video/video.webm" type="video/webm" />
-             <track kind="captions" label="English" src="/path/to/captions.vtt" srclang="en" />
-            <track kind="captions" label="Русский" src="/path/to/captions.vtt" srclang="ru" default />
-            
-        </div>
-        </video> -->
         </div>
       </div>
     </div>
-    <!-- <iframe src="./img/video.webm"></iframe> -->
     <div class="video-container paused" data-volume-level="high">
       <img class="thumbnail-img">
     <button class="play-pause-btn play-pause-btn--overlaid"></button>
@@ -218,11 +208,11 @@
         </div>
         <div class="controls">
           <button class="play-pause-btn">
-            <svg class="play-icon" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+            <svg class="custom-player-icon play-icon">
+              <use href="/__spritemap#sprite-custom-player-play"></use>
             </svg>
-            <svg class="pause-icon" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M14,19H18V5H14M6,19H10V5H6V19Z" />
+            <svg class="custom-player-icon pause-icon">
+              <use href="/__spritemap#sprite-custom-player-pause"></use>
             </svg>
           </button>
           <div class="volume-container">

@@ -179,6 +179,15 @@ video {
   display: none;
 }
 
+.custom-player-icon {
+  width: 30px;
+  height: 30px;
+
+  &:hover {
+    color: red;
+  }
+}
+
 .video-container[data-volume-level="high"] .volume-high-icon {
   display: block;
 }
