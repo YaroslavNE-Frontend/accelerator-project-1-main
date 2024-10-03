@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //// VIDEO DOWNLOAD
 
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', './video/video.webm');
+  xhr.open('GET', '../video/video.webm');
   xhr.responseType = 'arraybuffer';
   xhr.onload = (e) => {
     let blob = new Blob([xhr.response], { type: 'video/webm' });

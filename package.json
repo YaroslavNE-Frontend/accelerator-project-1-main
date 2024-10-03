@@ -51,7 +51,6 @@
     "w3c-html-validator": "1.6.4"
   },
   "dependencies": {
-    "plyr": "^3.7.8",
     "swiper": "11.0.7"
   },
   "engines": {
