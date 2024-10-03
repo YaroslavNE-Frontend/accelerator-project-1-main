@@ -35,6 +35,7 @@ video {
   z-index: 100;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
+  // transform: translate(0, 10000%);
 }
 
 .video-controls-container::before {
@@ -48,10 +49,22 @@ video {
   pointer-events: none;
 }
 
-.video-container:hover .video-controls-container,
-.video-container:focus-within .video-controls-container,
-.video-container.paused .video-controls-container {
+// .video-container:hover .video-controls-container,
+// .video-container:focus-within .video-controls-container,
+.video-container.paused .video-controls-container 
+
+  {
   opacity: 1;
+  // transform: translate(0);
+
+}
+
+.video-controls-container {
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .video-controls-container .controls {
@@ -190,6 +203,7 @@ video {
   transition: width 150ms ease-in-out, transform 150ms ease-in-out;
   accent-color: red;
   height: 5px;
+  cursor: pointer;
 
   // &::-webkit-slider-thumb, 
   // &::-webkit-slider-thumb {
