@@ -564,15 +564,24 @@ video.addEventListener('dblclick', doubleClickHandler);
     videoContainer.classList.toggle("theater")
   }
 
+
+  if (window.innerWidth <= 768) {
+    muteBtn.classList.remove("proverka")
+  } else if (window.innerWidth < 768) {
+    muteBtn.classList.remove("proverka")
+  } else {
+    muteBtn.classList.add("proverka")
+  }
+
   function toggleFullScreenMode() {
-    if (document.fullscreenElement == null && window.innerWidth >= 768) {
+    if (document.fullscreenElement == null) { 
       videoContainer.requestFullscreen()
-      muteBtn.classList.remove("proverka")
+   
     } else {
       document.exitFullscreen()
-      muteBtn.classList.add("proverka")
     }
   }
+  
 
   function toggleMiniPlayerMode() {
     if (videoContainer.classList.contains("mini-player")) {
