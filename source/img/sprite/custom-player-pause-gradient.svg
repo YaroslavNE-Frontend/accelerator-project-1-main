@@ -1,0 +1,7 @@
+<svg viewBox="0 0 24 24">
+              <path fill="url(#paint_linear_pause)" d="M14,19H18V5H14M6,19H10V5H6V19Z" />
+              <linearGradient x1="10.282494" y1="-0.000008" x2="47.299446" y2="67.826096" id="paint_linear_pause" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#ED0233"/>
+			<stop offset="1.000000" stop-color="#003EB7"/>
+		</linearGradient>
+            </svg>

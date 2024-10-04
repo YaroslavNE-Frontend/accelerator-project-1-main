@@ -134,7 +134,7 @@
   <header class="page-header">
     <div class="main-container">
       <div class="page-header__wrapper">
-        <img class="page-header__logo logo" src="/__spritemap#logo" width="100" height="20" alt="Логотип сайта">
+        <img class="page-header__logo logo" src="/__spritemap#sprite-logo-view" width="100" height="20" alt="Логотип сайта">
         <a class="page-header__phone" href="tel:88005555555">8 800 555-55-55</a>
       </div>
     </div>
@@ -165,9 +165,9 @@
     </div>
   </section>
   <section class="about" data-test="about">
-    <div class="main-container">
       <div class="about__wrapper">
         <div class="about__content">
+          <div class="main-container">
           <h2 class="about__title">Тренажёрный зал</h2>
           <h3 class="about__subtitle">Просторный зал площадью 900 кв/м</h3>
           <p class="about__text">Supergym – самый большой фитнес центр за Уралом и идеальное место для укрепления тела
@@ -176,6 +176,7 @@
           <p class="about__text">В зале расположены отдельная зона для Crossfit и кардио-зона с 40 тренажёрами.
             Также в фитнес центре есть несколько оборудованных залов для различных видов групповых занятий.</p>
         </div>
+      </div>
       </div>
       <div class="about__gallery">
         <div class="main-container main-container--padding">
@@ -190,145 +191,147 @@
               type="image/jpeg">
             <source media="(min-width: 320px)" srcset="img/about-img-mobile.jpeg 1x" width="320" height="280"
               type="image/jpeg">
-            <img class="about__image" src="img/about-img-mobile.webp" width="320" height="280"
+            <img class="about__image" src="img/about-img-mobile.webp" width="290" height="280"
               alt="Тренажёрный зал SUPERGYM" type="image/webp">
           </picture>
         </div>
       </div>
-    </div>
-    <div class="video-container paused" data-volume-level="high">
-      <img class="thumbnail-img">
-    <button class="play-pause-btn play-pause-btn--overlaid"></button>
-      <div class="video-controls-container">
-        <div class="timeline-container">
-          <div class="timeline">
-            <img class="preview-img">
-            <div class="thumb-indicator"></div>
-          </div>
-        </div>
-        <div class="controls">
-          <button class="play-pause-btn">
-            <svg class="custom-player-icon play-icon">
-              <use href="/__spritemap#sprite-custom-player-play"></use>
-            </svg>
-            <svg class="custom-player-icon pause-icon">
-              <use href="/__spritemap#sprite-custom-player-pause"></use>
-            </svg>
-          </button>
-          <div class="volume-container">
-            <button class="mute-btn">
-              <svg class="custom-player-icon volume-high-icon">
-                <use href="/__spritemap#sprite-custom-player-volumehigh"></use>
-              </svg>
-              <svg class="custom-player-icon volume-low-icon">
-                <use href="/__spritemap#sprite-custom-player-volumelow"></use>
-              </svg>
-              <svg class="custom-player-icon volume-muted-icon">
-                <use href="/__spritemap#sprite-custom-player-volumemuted"></use>
-              </svg>
-            </button>
-            <input class="volume-slider" type="range" min="0" max="1" step="any" value="1">
-          </div>
-          <div class="duration-container">
-            <div class="current-time">0:00</div>
-            /
-            <div class="total-time"></div>
-          </div>
-          <button class="restart-btn">
-            <svg class="custom-player-icon restart-icon">
-              <use href="/__spritemap#sprite-custom-player-restart"></use>
-          </svg>
-          </button>
-          <button class="rewind-btn">
-            <svg class="custom-player-icon rewind-icon">
-              <use href="/__spritemap#sprite-custom-player-rewind"></use>
-            </svg>
-          </button>
-          <button class="fast-forward-btn">
-            <svg class="custom-player-icon fast-forward-icon">
-              <use href="/__spritemap#sprite-custom-player-fast-forward"></use>
-            </svg>
-          </button>
-          <a class="download-link" style="display: inline-block; width: 30px; height: 30px; color: #ffffff;">
-            <button class="download-btn">
-              <svg class="custom-player-icon download-icon">
-                <use href="/__spritemap#sprite-custom-player-download"></use>
-              </svg>
-            </button>
-          </a>
-          <div class="options-container">
-            <div class="options-list">
-              <div class="options-button-down options-button-down--arrow">Назад</div>
-              <div class="options-item options-item--speed">
-                <span class="speed-text">Скорость</span>
-                <button class="speed-btn wide-btn">
-                  1x
-                </button>
-              </div>
-              <div class="options-speed-list">
-                <div class="options-speed-item" data-speed-item="0.25">0.25</div>
-                <div class="options-speed-item" data-speed-item="0.5">0.5</div>
-                <div class="options-speed-item" data-speed-item="0.75">0.75</div>
-                <div class="options-speed-item options-speed-item--active" data-speed-item="1">1</div>
-                <div class="options-speed-item" data-speed-item="1.25">1.25</div>
-                <div class="options-speed-item" data-speed-item="1.5">1.5</div>
-                <div class="options-speed-item" data-speed-item="1.75">1.75</div>
-                <div class="options-speed-item" data-speed-item="2">2</div>
-                <div class="options-speed-item" data-speed-item="2.25">2.25</div>
-                <div class="options-speed-item" data-speed-item="2.75">2.75</div>
-                <div class="options-speed-item" data-speed-item="3">3</div>
-                <div class="options-speed-item" data-speed-item="3.25">3.25</div>
-                <div class="options-speed-item" data-speed-item="3.75">3.75</div>
-                <div class="options-speed-item" data-speed-item="4">4</div>
-              </div>
-              <div class="options-item options-item--captions">
-                <span class="captions-text">Субтитры</span>
-                <button class="captions-btn">
-                  <svg class="custom-player-icon captions-icon">
-                    <use href="/__spritemap#sprite-custom-player-captions"></use>
-                  </svg>
-                </button>
-              </div>
-              <div class="options-captions-list">
-                <div class="options-captions-item" data-caption="ru">Русский</div>
-                <div class="options-captions-item" data-caption="en">English</div>
-                <div class="options-captions-item options-captions-item--active" data-caption="off">Выкл.</div>
-              </div>
+      <div class="main-container main-container--padding">
+      <div class="video-container paused" data-volume-level="high">
+        <img class="thumbnail-img">
+      <button class="play-pause-btn play-pause-btn--overlaid"></button>
+        <div class="video-controls-container">
+          <div class="timeline-container">
+            <div class="timeline">
+              <img class="preview-img">
+              <div class="thumb-indicator"></div>
             </div>
           </div>
-          <button class="options-btn">
-            <svg class="custom-player-icon settings-icon">
-              <use href="/__spritemap#sprite-custom-player-settings"></use>
+          <div class="controls">
+            <button class="play-pause-btn">
+              <svg class="custom-player-icon play-icon">
+                <use href="/__spritemap#sprite-custom-player-play"></use>
+              </svg>
+              <svg class="custom-player-icon pause-icon">
+                <use href="/__spritemap#sprite-custom-player-pause"></use>
+              </svg>
+            </button>
+            <div class="volume-container">
+              <button class="mute-btn">
+                <svg class="custom-player-icon volume-high-icon">
+                  <use href="/__spritemap#sprite-custom-player-volumehigh"></use>
+                </svg>
+                <svg class="custom-player-icon volume-low-icon">
+                  <use href="/__spritemap#sprite-custom-player-volumelow"></use>
+                </svg>
+                <svg class="custom-player-icon volume-muted-icon">
+                  <use href="/__spritemap#sprite-custom-player-volumemuted"></use>
+                </svg>
+              </button>
+              <input class="volume-slider" type="range" min="0" max="1" step="any" value="1">
+            </div>
+            <div class="duration-container">
+              <div class="current-time">0:00</div>
+              <div class="total-time"></div>
+            </div>
+            <button class="restart-btn">
+              <svg class="custom-player-icon restart-icon">
+                <use href="/__spritemap#sprite-custom-player-restart"></use>
             </svg>
-          </button>
-          <button class="mini-player-btn">
-            <svg class="custom-player-icon mini-player-icon">
-              <use href="/__spritemap#sprite-custom-player-mini-player"></use>
-            </svg>
-          </button>
-          <button class="theater-btn">
-            <svg class="custom-player-icon tall">
-              <use href="/__spritemap#sprite-custom-player-tall"></use>
-            </svg>
-            <svg class="custom-player-icon wide">
-              <use href="/__spritemap#sprite-custom-player-wide"></use>
-            </svg>
-          </button>
-          <button class="full-screen-btn">
-            <svg class="custom-player-icon open">
-              <use href="/__spritemap#sprite-custom-player-full-screen-open"></use> 
-            </svg>
-            <svg class="custom-player-icon close">
-              <use href="/__spritemap#sprite-custom-player-full-screen-close"></use> 
-            </svg>
-          </button>
+            </button>
+            <button class="rewind-btn">
+              <svg class="custom-player-icon rewind-icon">
+                <use href="/__spritemap#sprite-custom-player-rewind"></use>
+              </svg>
+            </button>
+            <button class="fast-forward-btn">
+              <svg class="custom-player-icon fast-forward-icon">
+                <use href="/__spritemap#sprite-custom-player-fast-forward"></use>
+              </svg>
+            </button>
+            <a class="download-link" style="display: inline-block; width: 30px; height: 30px; color: #ffffff;">
+              <button class="download-btn">
+                <svg class="custom-player-icon download-icon">
+                  <use href="/__spritemap#sprite-custom-player-download"></use>
+                </svg>
+              </button>
+            </a>
+            <div class="options-container">
+              <div class="options-list">
+                <div class="options-button-down options-button-down--arrow">Назад</div>
+                <div class="options-item options-item--speed">
+                  <span class="speed-text">Скорость</span>
+                  <button class="speed-btn wide-btn">
+                    1x
+                  </button>
+                </div>
+                <div class="options-speed-list">
+                  <div class="options-speed-item" data-speed-item="0.25">0.25</div>
+                  <div class="options-speed-item" data-speed-item="0.5">0.5</div>
+                  <div class="options-speed-item" data-speed-item="0.75">0.75</div>
+                  <div class="options-speed-item options-speed-item--active" data-speed-item="1">1</div>
+                  <div class="options-speed-item" data-speed-item="1.25">1.25</div>
+                  <div class="options-speed-item" data-speed-item="1.5">1.5</div>
+                  <div class="options-speed-item" data-speed-item="1.75">1.75</div>
+                  <div class="options-speed-item" data-speed-item="2">2</div>
+                  <div class="options-speed-item" data-speed-item="2.25">2.25</div>
+                  <div class="options-speed-item" data-speed-item="2.75">2.75</div>
+                  <div class="options-speed-item" data-speed-item="3">3</div>
+                  <div class="options-speed-item" data-speed-item="3.25">3.25</div>
+                  <div class="options-speed-item" data-speed-item="3.75">3.75</div>
+                  <div class="options-speed-item" data-speed-item="4">4</div>
+                </div>
+                <div class="options-item options-item--captions">
+                  <span class="captions-text">Субтитры</span>
+                  <button class="captions-btn">
+                    <svg class="custom-player-icon captions-icon">
+                      <use href="/__spritemap#sprite-custom-player-captions"></use>
+                    </svg>
+                  </button>
+                </div>
+                <div class="options-captions-list">
+                  <div class="options-captions-item" data-caption="ru">Русский</div>
+                  <div class="options-captions-item" data-caption="en">English</div>
+                  <div class="options-captions-item options-captions-item--active" data-caption="off">Выкл.</div>
+                </div>
+              </div>
+            </div>
+            <button class="options-btn">
+              <svg class="custom-player-icon settings-icon">
+                <use href="/__spritemap#sprite-custom-player-settings"></use>
+              </svg>
+            </button>
+            <button class="mini-player-btn">
+              <svg class="custom-player-icon mini-player-icon">
+                <use href="/__spritemap#sprite-custom-player-mini-player"></use>
+              </svg>
+            </button>
+            <button class="theater-btn">
+              <svg class="custom-player-icon tall">
+                <use href="/__spritemap#sprite-custom-player-tall"></use>
+              </svg>
+              <svg class="custom-player-icon wide">
+                <use href="/__spritemap#sprite-custom-player-wide"></use>
+              </svg>
+            </button>
+            <button class="full-screen-btn">
+              <svg class="custom-player-icon open">
+                <use href="/__spritemap#sprite-custom-player-full-screen-open"></use> 
+              </svg>
+              <svg class="custom-player-icon close">
+                <use href="/__spritemap#sprite-custom-player-full-screen-close"></use> 
+              </svg>
+            </button>
+          </div>
         </div>
+        <video src="" poster="img/preview.webp">
+          <track kind="captions" srclang="en" src="video/captions/englishsub.vtt">
+          <track kind="captions" srclang="ru" src="video/captions/russub.vtt">
+        </video>
       </div>
-      <video src="" poster="img/preview.webp">
-        <track kind="captions" srclang="en" src="video/captions/englishsub.vtt">
-        <track kind="captions" srclang="ru" src="video/captions/russub.vtt">
-      </video>
-    </div>
+      </div>
+      <button id="test1">Double Tap Me!</button>
+<div id="test2">EMPTY</div>
   </section>
   <div data-test="price">price</div>
   <div data-test="games">games</div>

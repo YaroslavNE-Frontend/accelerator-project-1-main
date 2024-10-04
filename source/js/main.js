@@ -209,9 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  firstTime()
 
-
+  // Tach skip
   // Restart Button
 
   restartBtn.addEventListener('click', firstTime)
@@ -264,6 +263,54 @@ document.addEventListener('DOMContentLoaded', () => {
   function toggleFastForward() {
     skip(5)
   }
+
+  // Double Tap Scip Tach
+
+// video.addEventListener('click', (e) => {
+//   let videoWidth = video.offsetWidth
+//   let clickX = e.clientX
+//     if (clickX > videoWidth/2) {
+//       console.log("Div was clicked on the right");
+//       console.log(clickX);
+//       skip(10)
+//   } else {
+//       console.log("Div was clicked on the left");
+//       console.log(e.clientY);
+//       skip(-10)
+//   }
+// })
+
+
+var elm1 = document.getElementById('test1');
+var elm2 = document.getElementById('test2');
+var timeout;
+var lastTap = 0;
+elm1.addEventListener('touchend', function(event) {
+    var currentTime = new Date().getTime();
+    var tapLength = currentTime - lastTap;
+    clearTimeout(timeout);
+    if (tapLength < 500 && tapLength > 0) {
+        elm2.innerHTML = 'Double Tap';
+        event.preventDefault();
+    } else {
+        elm2.innerHTML = 'Single Tap';
+        timeout = setTimeout(function() {
+            elm2.innerHTML = 'Single Tap (timeout)';
+            clearTimeout(timeout);
+        }, 500);
+    }
+    lastTap = currentTime;
+});
+
+
+
+
+function doubleClickHandler(e){
+  const videoWidth = video.offsetWidth;
+  (e.offsetX < videoWidth/2) ? skip(-10) : skip(10);
+}
+
+video.addEventListener('dblclick', doubleClickHandler);
 
   // Options
 
@@ -541,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
   playPauseBtn.forEach(e => {
     e.addEventListener("click", togglePlay)
   })
-  video.addEventListener("click", togglePlay)
+  // video.addEventListener("click", togglePlay)
 
   function togglePlay() {
     video.paused ? video.play() : video.pause()
