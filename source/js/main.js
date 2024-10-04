@@ -552,15 +552,25 @@ video.addEventListener('dblclick', doubleClickHandler);
   fullScreenBtn.addEventListener("click", toggleFullScreenMode)
   miniPlayerBtn.addEventListener("click", toggleMiniPlayerMode)
 
+
+  function reportWindowSize() {
+    console.log(window.innerWidth, window.innerHeight) 
+  }
+  
+  window.onresize = reportWindowSize;
+
+
   function toggleTheaterMode() {
     videoContainer.classList.toggle("theater")
   }
 
   function toggleFullScreenMode() {
-    if (document.fullscreenElement == null) {
+    if (document.fullscreenElement == null && window.innerWidth >= 768) {
       videoContainer.requestFullscreen()
+      muteBtn.classList.remove("proverka")
     } else {
       document.exitFullscreen()
+      muteBtn.classList.add("proverka")
     }
   }
 
