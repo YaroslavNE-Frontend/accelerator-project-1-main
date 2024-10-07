@@ -536,15 +536,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Media Hidden Controls
 
 
-    if (document.fullscreenElement && window.innerWidth >= 767) {
-      videoContainer.classList.add("controls-hidden");
-    } else {
+    if (document.fullscreenElement && window.innerWidth >= 320) {
       videoContainer.classList.remove("controls-hidden");
+    }
+     else {
+      videoContainer.classList.add("controls-hidden");
     }
   }
 
   // if (window.innerWidth >= 320 && window.innerWidth <= 767) {
-  //   // videoContainer.classList.remove("controls-hidden");
+  //   videoContainer.classList.add("controls-hidden");
   // }
 
 
