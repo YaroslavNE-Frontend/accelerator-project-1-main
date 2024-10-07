@@ -6,7 +6,8 @@
   justify-content: center;
   margin-inline: auto;
   background-color: black;
-  
+  overflow: hidden;
+
   @media screen and (min-width:767px) {
     position: absolute;
     left: 50%;
@@ -64,6 +65,7 @@ video {
 // .video-container:focus-within .video-controls-container,
 .video-container.paused .video-controls-container {
   opacity: 0;
+
   &:hover {
     opacity: 1;
   }
@@ -126,7 +128,8 @@ video {
 }
 
 .video-container.controls-hidden {
-  .theater-btn, 
+
+  .theater-btn,
   .mini-player-btn,
   .restart-btn {
     display: none;
@@ -312,16 +315,16 @@ video {
 }
 
 .options-list {
-    padding: 10px 10px;
-    background-color: rgba(68, 68, 68, 0.5);
-    position: absolute;
-    left: 10px;
-    bottom: 27px;
-    width: 130px;
-    border-radius: 10px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    pointer-events: none;
+  padding: 10px 10px;
+  background-color: rgba(68, 68, 68, 0.5);
+  position: absolute;
+  left: 10px;
+  bottom: 27px;
+  width: 130px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
 }
 
 .options-item {
@@ -356,7 +359,7 @@ video {
   height: 75px;
   overflow-y: scroll;
   overflow-x: hidden;
- 
+
 }
 
 // .options-captions-item {}
