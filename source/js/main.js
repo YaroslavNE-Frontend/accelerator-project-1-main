@@ -264,49 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
     skip(5);
   }
 
-  // Double Tap Scip Tach
-
-  // video.addEventListener('click', (e) => {
-  //   let videoWidth = video.offsetWidth
-  //   let clickX = e.clientX
-  //     if (clickX > videoWidth/2) {
-  //       console.log("Div was clicked on the right");
-  //       console.log(clickX);
-  //       skip(10)
-  //   } else {
-  //       console.log("Div was clicked on the left");
-  //       console.log(e.clientY);
-  //       skip(-10)
-  //   }
-  // })
-
-  var elm1 = document.getElementById("test1");
-  var elm2 = document.getElementById("test2");
-  var timeout;
-  var lastTap = 0;
-  elm1.addEventListener("touchend", function (event) {
-    var currentTime = new Date().getTime();
-    var tapLength = currentTime - lastTap;
-    clearTimeout(timeout);
-    if (tapLength < 500 && tapLength > 0) {
-      elm2.innerHTML = "Double Tap";
-      event.preventDefault();
-    } else {
-      elm2.innerHTML = "Single Tap";
-      timeout = setTimeout(function () {
-        elm2.innerHTML = "Single Tap (timeout)";
-        clearTimeout(timeout);
-      }, 500);
-    }
-    lastTap = currentTime;
-  });
-
-  function doubleClickHandler(e) {
-    const videoWidth = video.offsetWidth;
-    e.offsetX < videoWidth / 2 ? skip(-10) : skip(10);
-  }
-
-  video.addEventListener("dblclick", doubleClickHandler);
 
   // Options
 
@@ -434,6 +391,14 @@ document.addEventListener("DOMContentLoaded", () => {
     optionsContainer.classList.toggle("open-settings--captions");
     optionsBtnDown.classList.add("options-button-down--none");
   });
+
+
+  function doubleClickHandler(event) {
+    const videoWidth = video.offsetWidth;
+    event.offsetX < videoWidth / 2 ? skip(-10) : skip(10);
+  }
+
+
 
   // Captions
   // const captions = video.textTracks[0]
@@ -603,7 +568,30 @@ document.addEventListener("DOMContentLoaded", () => {
     videoContainer.classList.remove("mini-player");
   });
 
+
+  // Double Tap Skip/tooglePlay Tach
+
+  let timeout;
+  let lastTap = 0;
+  video.addEventListener("touchend", function (event) {
+    let currentTime = new Date().getTime();
+    let tapLength = currentTime - lastTap;
+    clearTimeout(timeout);
+    if (tapLength < 500 && tapLength > 0) {
+      const videoWidth = video.offsetWidth;
+      event.offsetX < videoWidth / 2 ? skip(-10) : skip(10);
+      event.preventDefault();
+    } else {
+      timeout = setTimeout(togglePlay, 500);
+    }
+    lastTap = currentTime;
+  });
+
+  video.addEventListener("dblclick", doubleClickHandler);
+
+
   // Play/Pause
+
   playPauseBtn.forEach((e) => {
     e.addEventListener("click", togglePlay);
   });
