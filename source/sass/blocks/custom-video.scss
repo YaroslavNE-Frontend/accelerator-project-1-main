@@ -136,16 +136,15 @@ video {
   }
 }
 
-.play-pause-btn--overlaid {
-  // display: none;
+.video-container .play-pause-btn--overlaid {
   padding: 0;
   position: absolute;
   content: '';
   width: 72px;
   height: 72px;
-  top: 45%;
+  top: 40%;
   left: 40%;
-  transform: translate(0, -50%);
+  transform: translate(0, -40%);
   background: url("/__spritemap#sprite-custom-player-pause-gradient-view");
   background-repeat: no-repeat;
   background-color: transparent;
@@ -155,6 +154,12 @@ video {
   cursor: pointer;
 }
 
+.video-container.full-screen .play-pause-btn--overlaid {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
 .video-container.paused .play-pause-btn--overlaid {
   display: block;
   padding: 0;
@@ -162,9 +167,9 @@ video {
   content: '';
   width: 72px;
   height: 72px;
-  top: 45%;
+  top: 40%;
   left: 40%;
-  transform: translate(0, -50%);
+  transform: translate(0, -40%);
   background: url("/__spritemap#sprite-play_btn-view");
   background-repeat: no-repeat;
   background-color: transparent;
@@ -190,6 +195,12 @@ video {
     background: url("/__spritemap#sprite-play_btn-disabled-view");
     cursor: no-drop;
   }
+}
+
+.video-container.paused.full-screen .play-pause-btn--overlaid {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .video-container.open-settings .options-list {
@@ -297,17 +308,34 @@ video {
 }
 
 
-.rewind-btn {
+.rewind-btn,
+.fast-forward-btn {
   position: absolute;
   top: -160%;
+
+  // @media screen and (min-width: 768px) {
+  //   position: relative;
+
+  // }
+}
+
+
+.video-container.full-screen .rewind-btn,
+.video-container.full-screen .fast-forward-btn {
+  top: -550%;
+}
+
+.rewind-btn {
   left: 20%;
 }
 
 .fast-forward-btn {
-  position: absolute;
-  top: -160%;
   right: 20%;
 }
+
+
+
+
 
 
 .options-container {
@@ -447,8 +475,14 @@ video {
 .timeline {
   background-color: rgba(100, 100, 100, .5);
   height: 3px;
-  width: 85%;
+  width: 80%;
   position: relative
+}
+
+.video-container.full-screen {
+  .timeline {
+    width: 85%;
+  }
 }
 
 .timeline::before {
