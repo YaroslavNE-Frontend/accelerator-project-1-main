@@ -127,6 +127,15 @@ video {
   display: none;
 }
 
+.theater-btn {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+
+  }
+}
+
 .video-container.controls-hidden {
 
   .theater-btn,
@@ -250,6 +259,7 @@ video {
 }
 
 .volume-slider {
+  display: none;
   width: 0;
   transform-origin: left;
   transform: scaleX(0);
@@ -257,6 +267,10 @@ video {
   accent-color: red;
   height: 5px;
   cursor: pointer;
+
+  @media screen and (min-width:768px) {
+    display: block;
+  }
 
   // &::-webkit-slider-thumb,
   // &::-webkit-slider-thumb {
@@ -278,32 +292,35 @@ video {
 }
 
 .current-time {
-  display: none;
-  position: relative;
+  position: absolute;
   padding-right: 6px;
+  top: -5px;
+  left: 2px;
 
-  &::after {
-    position: absolute;
-    top: 0;
-    right: -1px;
-    content: '/';
+  @media screen and (min-width:767px) {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: -1px;
+      content: '/';
+    }
   }
-
-  // top: -25px;
-  // left: 15px;
-
-  // &::after {
-  //   // display: none;
-  //   // position: absolute;
-  //   // content: '/';
-  // }
 }
 
 .total-time {
-  display: none;
-  // position: absolute;
-  // top: -25px;
-  // right: 15px;
+  position: absolute;
+  top: -5px;
+  right: 2px;
+
+  @media screen and (min-width:767px) {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
 }
 
 .video-container.captions .captions-btn {
@@ -545,15 +562,17 @@ video {
 }
 
 .timeline-container {
-
-  // padding: 0 35px;
   position: relative;
   height: 7px;
-  margin-inline: .5rem;
+  margin-inline: 2.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (min-width: 767px) {
+    margin-inline: .5rem;
+  }
 }
 
 .timeline {
