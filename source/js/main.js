@@ -148,6 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const speedBtn = document.querySelector(".speed-btn");
   const rewindBtn = document.querySelector(".rewind-btn");
   const fastForwardBtn = document.querySelector(".fast-forward-btn");
+  const rewindBtnMobile = document.querySelector(".rewind-btn-mobile");
+  const fastForwardBtnMobile = document.querySelector(".fast-forward-btn-mobile");
   const restartBtn = document.querySelector(".restart-btn");
   const downloadLink = document.querySelector(".download-link");
   const optionsContainer = document.querySelector(".options-container");
@@ -255,6 +257,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   rewindBtn.addEventListener("click", toggleRewind);
   fastForwardBtn.addEventListener("click", toggleFastForward);
+
+  rewindBtnMobile.addEventListener("click", toggleRewind);
+  fastForwardBtnMobile.addEventListener("click", toggleFastForward);
 
   function toggleRewind() {
     skip(-5);
@@ -541,11 +546,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       videoContainer.classList.remove("controls-hidden");
     }
+
+    if (window.innerWidth >= 320 && window.innerWidth <= 767) {
+      videoContainer.classList.remove("controls-hidden");
+    }
   }
 
-  // if (window.innerWidth >= 320 && window.innerWidth <= 767) {
-  //   videoContainer.classList.add("controls-hidden");
-  // }
+
 
 
   function toggleMiniPlayerMode() {
