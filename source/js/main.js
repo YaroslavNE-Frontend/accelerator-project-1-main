@@ -569,23 +569,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // Double Tap Skip/tooglePlay Tach
+  // Double Tap Skip/tooglePlay Touch
 
   let timeout;
   let lastTap = 0;
-  video.addEventListener("touchend", function (event) {
+  video.addEventListener("touchend", toggleTouchPlaySkip);
+
+  function toggleTouchPlaySkip(event) {
     let currentTime = new Date().getTime();
     let tapLength = currentTime - lastTap;
     clearTimeout(timeout);
-    if (tapLength < 500 && tapLength > 0) {
+    if (tapLength < 300 && tapLength > 0) {
       const videoWidth = video.offsetWidth;
       event.offsetX < videoWidth / 2 ? skip(-10) : skip(10);
       event.preventDefault();
     } else {
-      timeout = setTimeout(togglePlay, 500);
+      timeout = setTimeout(togglePlay, 300);
     }
     lastTap = currentTime;
-  });
+  }
 
   video.addEventListener("dblclick", doubleClickHandler);
 
