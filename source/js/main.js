@@ -543,9 +543,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  if (window.innerWidth >= 320 && window.innerWidth <= 767) {
-    videoContainer.classList.remove("controls-hidden");
-  }
+  // if (window.innerWidth >= 320 && window.innerWidth <= 767) {
+  //   // videoContainer.classList.remove("controls-hidden");
+  // }
 
 
   function toggleMiniPlayerMode() {

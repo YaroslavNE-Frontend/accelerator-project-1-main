@@ -16,12 +16,15 @@
 
 .about__wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .about__content {
     @media screen and (min-width: 768px) {
         max-width: 502px;
+        justify-content: center;
         text-align: center;
     }
 }
@@ -52,7 +55,7 @@
 }
 
 .about__gallery {
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 767px) {
         position: relative;
     }
 }
@@ -60,8 +63,14 @@
 .about__image {
     margin: 36px 0;
     width: 320px;
+    min-height: 320px;
     height: 280px;
     background-size: cover;
+    @media screen and (min-width: 767px) {
+        position: relative;
+        width: 678px;
+        min-height: 345px;
+    }
 }
 
 .about__gallery .plyr {

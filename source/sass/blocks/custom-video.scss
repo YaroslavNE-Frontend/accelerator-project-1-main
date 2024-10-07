@@ -1,11 +1,20 @@
 .video-container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 320px;
   display: flex;
   justify-content: center;
   margin-inline: auto;
   background-color: black;
+  
+  @media screen and (min-width:767px) {
+    position: absolute;
+    left: 50%;
+    bottom: -50px;
+    transform: translate(-50%, 0);
+    max-width: 270px;
+  }
+
 }
 
 .video-container.theater,
@@ -114,6 +123,14 @@ video {
 
 .video-container:not(.full-screen) .close {
   display: none;
+}
+
+.video-container.controls-hidden {
+  .theater-btn, 
+  .mini-player-btn,
+  .restart-btn {
+    display: none;
+  }
 }
 
 .play-pause-btn--overlaid {
