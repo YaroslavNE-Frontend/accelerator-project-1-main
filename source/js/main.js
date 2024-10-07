@@ -536,11 +536,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Media Hidden Controls
 
 
-    if (document.fullscreenElement && window.innerWidth >= 320) {
-      videoContainer.classList.remove("controls-hidden");
-    }
-     else {
+    if (document.fullscreenElement && window.innerWidth >= 767) {
       videoContainer.classList.add("controls-hidden");
+    } else {
+      videoContainer.classList.remove("controls-hidden");
     }
   }
 
