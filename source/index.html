@@ -50,13 +50,6 @@
           <path id="Ellipse EllipsePath" d="M1,36a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" stroke="CurrentColor" stroke-opacity="1.000000" stroke-width="2.000000" opacity="0.200000"/>
         </g>
       </symbol> -->
-      <symbol id="player-download" viewBox="0 0 18 18">
-        <g transform="translate(2 1)">
-          <path
-            d="M7,12 C7.3,12 7.5,11.9 7.7,11.7 L13.4,6 L12,4.6 L8,8.6 L8,0 L6,0 L6,8.6 L2,4.6 L0.6,6 L6.3,11.7 C6.5,11.9 6.7,12 7,12 Z" />
-          <rect width="14" height="2" y="14" />
-        </g>
-      </symbol>
       <symbol id="player-airplay" viewBox="0 0 18 18">
         <path d="M16 1H2a1 1 0 00-1 1v10a1 1 0 001 1h3v-2H3V3h12v8h-2v2h3a1 1 0 001-1V2a1 1 0 00-1-1z"></path>
         <path d="M4 17h10l-5-6z"></path>
@@ -143,11 +136,11 @@
   <section class="hero" data-test="hero">
     <div class="main-container">
       <div class="hero__wrapper">
-        <div class="hero-content__wrapper">
+        <div class="hero__content-wrapper">
           <p class="hero__text">Тренажёрный зал Групповые занятия Кардио-зона
           </p>
           <div class="hero__inner">
-            <p class="hero__city">Омск</h2>
+            <span class="hero__city">Омск</span>
             <h1 class="hero__title">Фитнес<br>центр</h1>
             <button class="hero__btn">Купить абонемент</button>
           </div>
@@ -160,7 +153,7 @@
           <source media="(min-width: 768px)" srcset="img/hero-img-tablet.jpeg 1x" width="324" height="390"
             type="image/jpeg">
           <img class="hero__image" src="img/hero-img-tablet.webp" width="324" height="390"
-            alt="Мужчина в футболке супермена на тёмном фоне" type="image/webp">
+            alt="Мужчина в футболке супермена на тёмном фоне">
         </picture>
       </div>
     </div>
@@ -190,10 +183,10 @@
             <source media="(min-width: 320px)" srcset="img/about-img-mobile.jpeg 1x" width="320" height="280"
               type="image/jpeg">
             <img class="about__image" src="img/about-img-mobile.webp" width="290" height="280"
-              alt="Тренажёрный зал SUPERGYM" type="image/webp">
+              alt="Тренажёрный зал SUPERGYM">
           </picture>
           <div class="video-container paused controls-hidden" data-volume-level="high">
-            <img class="thumbnail-img">
+            <img class="thumbnail-img" src="">
             <button class="rewind-btn-mobile">
               <svg class="custom-player-icon rewind-icon">
                 <use href="/__spritemap#sprite-custom-player-rewind"></use>
@@ -208,7 +201,7 @@
             <div class="video-controls-container">
               <div class="timeline-container">
                 <div class="timeline">
-                  <img class="preview-img">
+                  <img class="preview-img" alt="Превью видео">
                   <div class="thumb-indicator"></div>
                 </div>
               </div>
@@ -255,11 +248,11 @@
                   </svg>
                 </button>
                 <a class="download-link" style="display: inline-block; width: 30px; height: 30px; color: #ffffff;">
-                  <button class="download-btn">
+                  <div class="download-btn">
                     <svg class="custom-player-icon download-icon">
                       <use href="/__spritemap#sprite-custom-player-download"></use>
                     </svg>
-                  </button>
+                  </div>
                 </a>
                 <div class="options-container">
                   <div class="options-list">
@@ -338,7 +331,22 @@
       </div>
     </div>
   </section>
-  <div data-test="price">price</div>
+  <section data-test="price">
+    <h2 class="price-title">Абонементы</h2>
+    <ul class="price-list">
+      <li class="price-list__item">1 месяц</li>
+      <li class="price-list__item">6 месяцев</li>
+      <li class="price-list__item">12 месяцев</li>
+    </ul>
+    <div class="price-card-wrapper">
+      <div class="price-card">
+        <h3 class="price-card__title">С тренером</h3>
+        <h4 class="price-card__subtitle">12 занятий</h4>
+        <span class="price-card__price">5000</span>
+        <button class="price-card__btn" type="button">Купить абонемент</button>
+      </div>
+    </div>
+  </section>
   <div data-test="games">games</div>
   <div data-test="juri">juri</div>
   <div data-test="features">features</div>
@@ -348,7 +356,7 @@
   <div data-test="form">form</div>
   <div data-test="footer">footer</div>
   <!-- <script type="module" src="js/plyr.js"></script> -->
-  <script type="module" src="js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>
