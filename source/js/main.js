@@ -596,6 +596,8 @@ document.addEventListener("DOMContentLoaded", () => {
     lastTap = currentTime;
   }
 
+  // console.log(video.offsetWidth)
+
   video.addEventListener("dblclick", doubleClickHandler);
 
 
