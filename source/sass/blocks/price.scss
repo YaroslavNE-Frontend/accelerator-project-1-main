@@ -82,11 +82,39 @@
 }
 
 .price-card__price {
-    display: block;
+    padding-right: 34px;
+    position: relative;
+    display: inline-block;
     color: #103aae;
     font-family: $RobotoCondensed;
     font-size: 48px;
     font-weight: 700;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        content: attr(data-price-shadow);
+        left: -20px;
+        top: -60px;
+        color: #e8e8e8;
+        font-family: $RobotoCondensed;
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 150%;
+        text-align: center;
+        z-index: -1;
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 24px;
+        height: 33px;
+        top: 10px;
+        right: 0;
+        background: url('/__spritemap#sprite-rub-view')
+    }
+
 }
 
 .price-card__btn {
