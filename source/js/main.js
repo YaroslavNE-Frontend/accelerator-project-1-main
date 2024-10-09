@@ -240,10 +240,11 @@ document.addEventListener("DOMContentLoaded", () => {
   //// VIDEO DOWNLOAD
 
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "../video/video.webm");
+  xhr.open("GET", "../video/video.mp4");
+  // xhr.open("GET", "https://youtu.be/9TZXsZItgdw");
   xhr.responseType = "arraybuffer";
   xhr.onload = (e) => {
-    let blob = new Blob([xhr.response], { type: "video/webm" });
+    let blob = new Blob([xhr.response], { type: "video/mp4" });
     let url = URL.createObjectURL(blob);
     console.log(url);
     video.src = url;
