@@ -101,41 +101,7 @@
       padding-right: 50px;
     }
 
-<<<<<<< HEAD
-    &::before {
-        position: absolute;
-        content: "";
-        left: 0;
-        right: 0;
-        bottom: -2px;
-        width: 100%;
-        height: 2px;
-        border-bottom: 2px solid rgba(120, 120, 120, 0.2);
-    }
-
-    &--active::before {
-        position: absolute;
-        width: calc(100% - 50px);
-        height: 2px;
-        content: '';
-        left: 0;
-        right: 0;
-        bottom: -2px;
-        border-bottom: 2px solid rgb(209, 10, 66);
-    }
-
-    @media screen and (min-width: 1366px) {
-        font-size: 20px;
-        line-height: 20px;
-
-        &:not(:last-child) {
-            padding-right: 50px;
-        }
-
-    }
-=======
   }
->>>>>>> 073e85c0e8dfd1e735ccd47cc6188a066046891e
 }
 
 .price-list__item.price-list__item--active {
